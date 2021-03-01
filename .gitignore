@@ -1,7 +1,13 @@
 *.pyc
+*.log
 *~
 __pycache__
-venv
+env
 db.sqlite3
-/static
 .DS_Store
+.vscode
+settings_local.py
+/media
+/mysql-data
+/mysql-dump
+/static
