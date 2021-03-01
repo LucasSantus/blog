@@ -18,6 +18,6 @@ services:
       - ./mysql-dump:/docker-entrypoint-initdb.d
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_USER=brinquedoteca
-      - MYSQL_PASSWORD=brinquedotecapwd
-      - MYSQL_DATABASE=brinquedoteca_db
+      - MYSQL_USER=blog
+      - MYSQL_PASSWORD=blogpwd
+      - MYSQL_DATABASE=blog_db
