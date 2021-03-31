@@ -1,6 +1,17 @@
 *.pyc
+*.log
 *~
 __pycache__
 env
 db.sqlite3
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+.vscode
+settings_local.py
+/media
+/mysql-data
+/mysql-dump
+/static
+>>>>>>> 73b08ddf3ada2475fa51cb2e50f0e10e5a679186
