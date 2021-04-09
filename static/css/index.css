@@ -60,6 +60,12 @@ main {
     font-size: 60px;
 } 
 
+.title{
+    color: #ff9800;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+}
+
 .icones-sociais li {
     display: inline-block;
 }
