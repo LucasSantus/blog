@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% if user.is_authenticated %}
+        <div class="fixed-action-btn top">
+            <a href="{% url 'post_new' %}" class="btn-floating btn-large">
+                <i class="large material-icons">add</i>
+            </a>
+        </div>
+    {% endif %}
+
     {% for post in list_posts %}
         <div class="post">
             <div class="date">

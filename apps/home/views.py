@@ -9,4 +9,4 @@ def index(request):
         "list_posts": list_posts
     }
     
-    return render(request, 'cadastro/index.html', context)
+    return render(request, 'home/index.html', context)

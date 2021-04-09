@@ -11,12 +11,20 @@ main {
 
 /* HEADER */
 .nav-wrapper{
-    background-color: #32BF84;
+    background-color: #fb8c00;
 }
 
 /* FOOTER */
 .page-footer{
     background-color: transparent;
+}
+
+.page-footer .row .col span{
+    color: #fb8c00;
+}
+
+.btn-floating{
+    background-color: #fb8c00;
 }
 
 /* CARD's */

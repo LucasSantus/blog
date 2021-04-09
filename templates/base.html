@@ -14,17 +14,15 @@
         <!-- Import Java Script Materialize -->
         <script type="text/javascript" src="{% static 'js/materialize.min.js' %}" defer></script>
 
-        <!-- Import Java Script DateTimePicker -->
-        <script type="text/javascript" src="{% static 'js/materializedatetimepicker.js' %}" defer></script>
-
         <!-- Let browser know website is optimized for mobile -->
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 
         <!-- Import CSS Personalizado -->
         <link type="text/css" rel="stylesheet" href="{% static 'css/index.css' %}">
 
-        <!-- Import Java Script Personalizado -->
+        <!-- Import Java Script Personalizado 
         <script type="text/javascript" src="{% static 'js/index.js' %}" defer></script>
+        -->
 
         <!-- Import JQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
@@ -35,16 +33,7 @@
             <div class="navbar-fixed">
                 <nav>
                     <div class="nav-wrapper">
-                    
-                        <a href="{% url 'index' %}" class="brand-logo"><i class="material-icons">dashboard</i><span class='truncate'>CRemédios</span></a>
-                   
-                        <ul class="right hide-on-med-and-down">
-                            <li><a data-target="modal1" class="modal-trigger">Sair</a></li>
-                        </ul>
-                        
-                        {% if user.is_authenticated %}
-                            <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                        {% endif %}
+                        <a href="{% url 'index' %}" class="brand-logo"><i class="material-icons">dashboard</i><span class='truncate'>Blog</span></a>
                     </div>
                 </nav>
             </div>
@@ -57,22 +46,10 @@
         
         <footer class="page-footer">
             <div class="row" style="width: 90%;">
-                <div class="col l6 s12">
-                    <span style="color: #32BF84;">&copy; 2020-2021 Copyright CRemédios, All rights reserved.</span>
+                <div class="col s12 center">
+                    <span>&copy; 2020-2021 Copyright Blog, All rights reserved.</span>
                 </div>
             </div>
         </footer>
-
-        <!-- Modal - SAIR -->
-        <div id="modal1" class="modal">
-            <div class="modal-content">
-                <h5 class="modal-title" id="ModalLabel">Você realmente deseja sair?</h5>
-                <p>Para confirmar essa ação selecione "CONFIRMAR".</p>
-            </div>
-            <div class="modal-footer">
-                <a class="modal-close waves-effect waves-green btn-flat" style="color:#32BF84">CANCELAR</a>
-                <button href="#" style="margin-left: 2px; background-color:#32BF84" class="btn btn-secondary modal-close" type="button">CONFIRMAR</button>
-            </div>
-        </div>
     </body>
 </html>

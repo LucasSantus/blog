@@ -19,11 +19,11 @@ def post_edit(request, pk):
     context = {
         "form": form,
     }
-    return render(request, 'cadastro/post_edit.html', context)
+    return render(request, 'administracao/post_edit.html', context)
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
     context = {
         "post": post,
     }
-    return render(request, 'cadastro/post_detail.html', context)
+    return render(request, 'administracao/post_detail.html', context)

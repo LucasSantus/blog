@@ -18,4 +18,4 @@ def post_new(request):
         "form": form,
     }
     
-    return render(request, 'cadastro/post_edit.html', context)
+    return render(request, 'administracao/post_edit.html', context)
