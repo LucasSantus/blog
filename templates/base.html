@@ -20,9 +20,8 @@
         <!-- Import CSS Personalizado -->
         <link type="text/css" rel="stylesheet" href="{% static 'css/index.css' %}">
 
-        <!-- Import Java Script Personalizado 
+        <!-- Import Java Script Personalizado -->
         <script type="text/javascript" src="{% static 'js/index.js' %}" defer></script>
-        -->
 
         <!-- Import JQuery -->
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
@@ -34,6 +33,13 @@
                 <nav>
                     <div class="nav-wrapper">
                         <a href="{% url 'index' %}" class="brand-logo"><i class="material-icons">dashboard</i><span class='truncate'>Blog</span></a>
+                        
+                        <ul class="right hide-on-med-and-down">
+                            <a class="dropdown-trigger" data-target='dropdown1'><i class="material-icons">settings</i></a>
+                            <ul id='dropdown1' class='dropdown-content'>
+                                <li><a href="#">Sair</a></li>
+                            </ul>
+                        </ul>
                     </div>
                 </nav>
             </div>
