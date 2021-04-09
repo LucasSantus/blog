@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Post
-from .forms import PostForm
+from cadastro.models import Post
+from cadastro.forms import PostForm
 
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
