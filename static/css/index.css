@@ -1,0 +1,71 @@
+/* BODY */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+/* MAIN */
+main {
+    flex: 1 0 auto;
+}
+
+/* HEADER */
+.nav-wrapper{
+    background-color: #fb8c00;
+}
+
+/* FOOTER */
+.page-footer{
+    background-color: transparent;
+}
+
+.page-footer .row .col span{
+    color: #fb8c00;
+}
+
+.btn-floating{
+    background-color: #fb8c00;
+}
+
+/* CARD's */
+.container .container .card{
+    padding: 2%;
+}
+
+.container .container .card .container h2 span{
+    font-size: large;
+
+}
+
+.alert .card-content span {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-right:4px;
+}
+
+.alert .card-content .material-icons {
+    font-size: 1.5em;
+    position: relative;
+    top: 5px;
+    margin-right: 0.5em;
+}
+
+.brand-logo{
+    margin-left: 1%;
+}
+
+/* Texto de ínicio */
+.text-theme{
+    width: 100%;
+    font-size: 60px;
+} 
+
+.title{
+    color: #ff9800;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+}
+
+.icones-sociais li {
+    display: inline-block;
+}
