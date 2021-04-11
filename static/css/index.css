@@ -27,47 +27,28 @@ main {
     background-color: #fb8c00;
 }
 
+.container .card{
+
+    height: auto;
+
+}
+
 /* CARD's */
-.container .container .card{
-    padding: 2%;
-}
-
-.container .container .card .container h2 span{
-    font-size: large;
-
-}
-
-.alert .card-content span {
-    font-weight: bold;
-    font-size: 1.1em;
-    margin-right:4px;
-}
-
-.alert .card-content .material-icons {
-    font-size: 1.5em;
-    position: relative;
-    top: 5px;
-    margin-right: 0.5em;
+.container .card .format{
+    padding-top: 0.001%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 0.1%;
 }
 
 .brand-logo{
     margin-left: 1%;
 }
 
-/* Texto de ínicio */
-.text-theme{
-    width: 100%;
-    font-size: 60px;
-} 
-
 .title{
     color: #ff9800;
     font-family: "Times New Roman", Times, serif;
     font-style: italic;
-}
-
-.icones-sociais li {
-    display: inline-block;
 }
 
 .data_publicacao{
