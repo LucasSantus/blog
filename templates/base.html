@@ -32,14 +32,17 @@
             <div class="navbar-fixed">
                 <nav>
                     <div class="nav-wrapper">
+                        
                         <a href="{% url 'index' %}" class="brand-logo"><i class="material-icons">dashboard</i><span class='truncate'>Blog</span></a>
                         
-                        <ul class="right hide-on-med-and-down">
-                            <a class="dropdown-trigger" data-target='dropdown1'><i class="material-icons">settings</i></a>
-                            <ul id='dropdown1' class='dropdown-content'>
-                                <li><a href="#">Sair</a></li>
+                        {% if user.is_authenticated %}
+                            <ul class="right hide-on-med-and-down">
+                                <a class="dropdown-trigger" data-target='dropdown1'><i class="material-icons">settings</i></a>
+                                <ul id='dropdown1' class='dropdown-content'>
+                                    <li><a href="#">Sair</a></li>
+                                </ul>
                             </ul>
-                        </ul>
+                        {% endif %}
                     </div>
                 </nav>
             </div>

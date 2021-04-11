@@ -14,10 +14,12 @@
             <div class="card z-depth-2">
                 <div class="container" style="padding-bottom: 0.5%">
                     <div class="post">
-                        <h2><a href="{% url 'post_detail' pk=post.pk %}" class="truncate title">{{ post.title }}</a></h2>
-                            <p>{{ post.text }}
-                            <div class="">
-                                data de publicação: {{ post.published_date }}
+                        <h2>
+                            <a href="{% url 'post_detail' pk=post.pk %}" class="truncate title">{{ post.title }}</a>
+                        </h2>
+                            <p class="truncate">{{ post.text }}
+                            <div class="data_publicacao">
+                                {{ post.published_date }}
                             </div>
                         </p>
                     </div>

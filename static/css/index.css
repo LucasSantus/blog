@@ -69,3 +69,8 @@ main {
 .icones-sociais li {
     display: inline-block;
 }
+
+.data_publicacao{
+    font-style: italic;
+    font-family: sans-serif;
+}
