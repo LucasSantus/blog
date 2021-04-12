@@ -18,6 +18,7 @@ def post_edit(request, pk):
         
     context = {
         "form": form,
+        "nome_pagina": "Atualizando Post",
     }
     return render(request, 'administracao/post_edit.html', context)
 

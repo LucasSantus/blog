@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
 
+{% load materializecss %}
+
 {% block content %}
-    <h2>New post</h2>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
+    <h3>{{ nome_pagina }}</h3>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|materializecss }}
         <button type="submit" class="save btn btn-default">Save</button>
     </form>
 {% endblock %}
