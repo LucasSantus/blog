@@ -11,21 +11,20 @@
 
     <div class="container">
         {% for post in list_posts %}
-                <div class="format">
-                    <h3>
-                        <a href="{% url 'post_detail' pk=post.pk %}" class="truncate title">
-                            {{ post.title }}
-                        </a>
-                    </h3>
-                    <article>
-                        <p>
-                            {{ post.text }}
-                            <div class="data_publicacao">
-                                {{ post.published_date }}
-                            </div>
-                        </p>
-                    </article>
+              <div class="col s12 m7">
+                <div class="card horizontal">
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <h4 class=" title">{{ post.title }}</h4>
+                            <p>{{ post.text }}{{ post.published_date }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{% url 'post_detail' pk=post.pk %}" class="right">LER MAIS</a>
+                        </div>
+                    </div>
                 </div>
+            </div>
+
                 <div class="divider"></div>
         {% endfor %}
     </div>
