@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% if user.is_authenticated %}
+    {% comment %} {% if user.is_authenticated %}
         <div class="fixed-action-btn top">
             <a href="{% url 'post_new' %}" class="btn-floating btn-large">
                 <i class="large material-icons">add</i>
@@ -27,5 +27,74 @@
 
                 <div class="divider"></div>
         {% endfor %}
-    </div>
+    </div> {% endcomment %}
+
+
+<div class="container" id="startPosts">
+	<br>
+	<br>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col s12 m10 offset-m1 l9 offset-l1">
+                <div class="post-preview">
+                    <a href="samplePost.html">
+                        <h4 class="post-title titleFont">
+                           Google’s Material Design – A new Design Language
+                        </h4>
+                        <h6 class="post-subtitle subTitleFont">
+                           To establish a unified experience across its platforms
+                        </h6>
+                    </a>
+                   <p class="post-meta"><i class="fa fa-clock-o"></i> 7 days ago by <a href="#">Author name</a></p>
+                </div>
+                <hr>
+                 <div class="post-preview">
+                    <a href="samplePost.html">
+                        <h4 class="post-title titleFont">
+                           Metaflop – design your own fonts for free
+                        </h4>
+                        <h6 class="post-subtitle subTitleFont">
+                            Easy to use web application for modulating your own fonts
+                        </h6>
+                    </a>
+                   <p class="post-meta"><i class="fa fa-clock-o"></i> 8 days ago by <a href="#">Author name</a></p>
+                </div>
+                <hr>
+               <div class="post-preview">
+                    <a href="samplePost.html">
+                        <h4 class="post-title titleFont">
+                           HubPress – A web application to build your Blog on GitHub
+                        </h4>
+                        <h6 class="post-subtitle subTitleFont">
+                            Open source tool to build your future awesome blog
+                        </h6>
+                    </a>
+                   <p class="post-meta"><i class="fa fa-clock-o"></i> 9 days ago by <a href="#">Author name</a></p>
+                </div>
+                <hr>
+                 <div class="post-preview">
+                    <a href="samplePost.html">
+                        <h4 class="post-title titleFont">
+                           Shrinkray to optimize your images.
+                        </h4>
+                        <h6 class="post-subtitle subTitleFont">
+                           The easiest way to optimize your images.
+                        </h6>
+                    </a>
+                   <p class="post-meta"><i class="fa fa-clock-o"></i> 10 days ago by <a href="#">Author name</a></p>
+                </div>
+                <hr>
+               
+                     <div class="row">
+          <a href="#" class="btn-large waves-effect waves-light grey darken-2">Older posts  <i class="fa fa-chevron-right"></i></a>
+        </div>
+                    
+              
+			
+			
+		</div>
+	</div>
+</div>
+
 {% endblock %}
