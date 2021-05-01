@@ -2,6 +2,13 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from cadastro.models import Post
 from cadastro.forms import PostForm
+from datetime import date
+
+def base(request):
+    context = { 
+    	'date': date.today()
+    }
+    return context
 
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)

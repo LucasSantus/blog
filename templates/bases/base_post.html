@@ -28,15 +28,20 @@
 
         <script type="text/javascript" script-name="alex-brush" src="http://use.edgefonts.net/alex-brush.js" defer></script>
         <script type="text/javascript" script-name="carter-one" src="http://use.edgefonts.net/carter-one.js" defer></script>
+
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
     </head>
     
     <body>
         <header>
 
-              <nav class="grey darken-2">
+            <nav class="grey darken-2">
                 <div class="nav-wrapper container">
-                    <a href="#!" class="brand-logo">Logo</a>
-                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <a href="/" class="brand-logo">Dev Content's</a>
+                    <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                     <ul class="right hide-on-med-and-down">
                         <li><a href="/">Home</a></li>
                         <li><a href="/">About Us</a></li>
@@ -47,6 +52,7 @@
             </nav>
 
             <ul class="sidenav" id="mobile-demo">
+                <li><a class="sidenav-close right" href="/"><i class="material-icons">close</i></a></li>
                 <li><a href="/">Home</a></li>
                 <li><a href="/">About Us</a></li>
                 <li><a href="/">Sample post</a></li>
@@ -108,10 +114,10 @@
             </script>
         </main>
         
-        <footer class="page-footer">
-            <div class="row" style="width: 90%;">
-                <div class="col s12 center">
-                    <span>&copy; 2020-2021 Copyright Blog, All rights reserved.</span>
+        <footer class="page-footer transparent">
+            <div class="row" style="width: 80%;">
+                <div class="col s12 center grey-text text-darken-2">
+                    <span>&copy; 2020 - {{date.year}} Copyright Dev Content's, All rights reserved.</span>
                 </div>
             </div>
         </footer>

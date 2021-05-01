@@ -1,58 +1,49 @@
-/* BODY */
+/* FOOTER MATERIALIZE */
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
-/* MAIN */
+
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
-/* HEADER */
-/* .nav-wrapper{
-    background-color: #fb8c00;
-} */
-
-/* FOOTER */
-/* .page-footer{
-    background-color: transparent;
+/* TEMPLATE post_new */
+#form-new .input-field input{
+  color: #212121;
 }
 
-.page-footer .row .col span{
-    color: #fb8c00;
+#form-new .input-field textarea{
+  color: #212121;
 }
 
-.btn-floating{
-    background-color: #fb8c00;
+#form-new .input-field>label{
+  color: #212121;
 }
 
-.container .card{
-    height: auto;
-} */
-
-/* CARD's */
-/* .container .card .format{
-    padding-top: 0.001%;
-    padding-left: 1%;
-    padding-right: 1%;
-    padding-bottom: 0.1%;
+#form-new .btn-custom a{
+  background-color: #212121;
+  color: white;
+  margin-top:1px;
 }
 
-.brand-logo{
-    margin-left: 1%;
+#form-new .btn-custom a:hover{
+  background-color: #757575;
+  color: white;
 }
 
-.title{
-    color: #ff9800;
-    font-family: "Times New Roman", Times, serif;
-    font-style: italic;
+#form-new .btn-custom button{
+  background-color: #212121;
+  color: white;
+  margin-top:1px;
 }
 
-.data_publicacao{
-    font-style: italic;
-    font-family: sans-serif;
-} */
+#form-new .btn-custom button:hover{
+  background-color: #757575;
+  color: white;
+}
+
 
 
 /*
@@ -66,11 +57,17 @@ nav .brand-logo {
   color: white;
 }
 
-.col{font-family:Lora,'Times New Roman',serif;font-size:20px;color:#404040}
+.col{
+  font-family:Lora,'Times New Roman',serif;
+  font-size:20px;
+  color:#404040
+}
+
 p {
   line-height: 1.5;
   
 }
+
 .button-collapse {
   color: #ee6e73;
 }
@@ -81,9 +78,9 @@ p {
   height: auto;
   color: rgba(255,255,255,.9);
 }
-  .parallax-container .section {
+.parallax-container .section {
     width: 100%;
-  }
+}
 
 @media only screen and (max-width : 992px) {
   .parallax-container .section {
@@ -110,23 +107,19 @@ footer.page-footer {
   margin: 0;
 }
 
-
-
-
- .parallax img 
- {
+.parallax img 
+{
  	 background-repeat: no-repeat;
  	 background-size: cover;
- }
- .parallax-container
- {
+}
+.parallax-container
+{
  	color: black;
- }
- @media only screen and (max-width : 600px) {
-  .parallax-container
- {
- 	color: white;
- }
+}
+@media only screen and (max-width : 600px) {
+  .parallax-container{
+    color: white;
+  }
 }
  nav a.button-collapse
  {
