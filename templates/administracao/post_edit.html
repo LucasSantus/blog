@@ -1,12 +1,21 @@
-{% extends 'bases/base_post.html' %}
+{% extends 'bases/base_clean.html' %}
 
 {% load materializecss %}
 
 {% block content %}
-    <h3>{{ nome_pagina }}</h3>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form|materializecss }}
-        <button type="submit" class="save btn btn-default">Save</button>
-    </form>
+    <body class="grey lighten-2">
+        <div class="container center" style="margin-top: 12%">
+            <div class="container">
+                <h3 class="grey-text text-darken-4">New Post</h3>
+                <form id="form-edit" method="POST">
+                    {% csrf_token %}
+                    {{ form|materializecss }}
+                    <div class="btn-custom">
+                        <a href="/" class="waves-effect waves-light btn btn-flat">BACK</a>
+                        <button type="submit" class="waves-effect waves-light btn">SAVE</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
 {% endblock %}

@@ -2,6 +2,10 @@
 
 {% load materializecss %}
 
+{% block title %}
+    New Post | Flop
+{% endblock %}
+
 {% block content %}
     <body class="grey lighten-2">
         <div class="container center" style="margin-top: 12%">
@@ -10,11 +14,31 @@
                 <form id="form-new" method="POST">
                     {% csrf_token %}
                     {{ form|materializecss }}
+
+                    {% if form.errors %}
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                <strong>{{ error|escape }}</strong>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+
                     <div class="btn-custom">
-                        <a href="/" class="waves-effect waves-light btn btn-flat">BACK</a>
+                        <button data-target="modal-back" class="waves-effect waves-light btn btn-flat modal-trigger">BACK</button>
                         <button type="submit" class="waves-effect waves-light btn">SAVE</button>
                     </div>
                 </form>
+            </div>
+        </div>
+        <!-- Modal Structure -->
+        <div id="modal-back" class="modal">
+            <div class="modal-content">
+                <h4>Back to Dashboard</h4>
+                <p>Do you really want to continue this action?</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="modal-close waves-effect waves-light btn btn-flat">BACK</a>
+                <a href="/" class="modal-close waves-effect waves-green btn btn-flat">CONFIRM</a>
             </div>
         </div>
     </body>

@@ -44,6 +44,40 @@ main {
   color: white;
 }
 
+/* TEMPLATE post_edit */
+#form-edit .input-field input{
+  color: #212121;
+}
+
+#form-edit .input-field textarea{
+  color: #212121;
+}
+
+#form-edit .input-field>label{
+  color: #212121;
+}
+
+#form-edit .btn-custom a{
+  background-color: #212121;
+  color: white;
+  margin-top:1px;
+}
+
+#form-edit .btn-custom a:hover{
+  background-color: #757575;
+  color: white;
+}
+
+#form-edit .btn-custom button{
+  background-color: #212121;
+  color: white;
+  margin-top:1px;
+}
+
+#form-edit .btn-custom button:hover{
+  background-color: #757575;
+  color: white;
+}
 
 
 /*

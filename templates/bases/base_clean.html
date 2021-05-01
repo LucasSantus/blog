@@ -29,6 +29,14 @@
         <script type="text/javascript" script-name="alex-brush" src="http://use.edgefonts.net/alex-brush.js" defer></script>
         <script type="text/javascript" script-name="carter-one" src="http://use.edgefonts.net/carter-one.js" defer></script>
 
+        <!-- Scripts JavaScripts -->
+        <script>
+            $(document).ready(function(){
+                $('.modal').modal();
+            });
+        </script>
+
+        <!-- Título do WebSite -->
         <title>
             {% block title %}
             {% endblock %}
@@ -40,11 +48,11 @@
             {% block content %}
             {% endblock %}
         </main>
-        
+
         <footer class="page-footer transparent">
             <div class="row" style="width: 80%;">
                 <div class="col s12 center grey-text text-darken-4">
-                    <span>&copy; 2020 - {{date.year}} Copyright Dev Content's, All rights reserved.</span>
+                    <span>&copy; 2020 - {{date.year}} Copyright Flop, All rights reserved.</span>
                 </div>
             </div>
         </footer>
