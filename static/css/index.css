@@ -267,16 +267,17 @@ hr {
 
 .subTitleFont
 {
-	 -webkit-box-sizing: content-box;
+	-webkit-box-sizing: content-box;
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   border: none;
-  font: normal 25px/1 "alex-brush", Helvetica, sans-serif;
+  font: normal 35px/1 "alex-brush", Helvetica, sans-serif;
   
   
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
+
 .titleFont
 {
 	-webkit-box-sizing: content-box;

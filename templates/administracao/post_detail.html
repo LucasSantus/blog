@@ -11,12 +11,13 @@
 
     <div class="container">
         <h2 class="title">{{ post.title }}</h2>
-        {% if post.published_date %}
-            <div class="data_publicacao right">
-                data da publicação: {{ post.published_date }}
-            </div>
-        {% endif %}
-        <br>
-        <p>{{ post.text|linebreaksbr }}</p>
+        <div class="container" style="font-size: 18px">
+            <p>{{ post.text|linebreaksbr }}</p>
+            {% if post.published_date %}
+                <div class="data_publicacao right">
+                    <strong>data da publicação:</strong> {{ post.published_date }}
+                </div>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
