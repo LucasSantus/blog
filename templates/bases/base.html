@@ -29,6 +29,7 @@
         
         <!-- Import Java Script Materialize -->
         <script type="text/javascript" src="{% static 'js/materialize.min.js' %}" defer></script>
+        
         <!-- Scripts JavaScripts -->
         <script>
             $(document).ready(function(){
@@ -72,25 +73,21 @@
     
     <body>
         <header>
-
-            <nav class="grey darken-2">
+            <nav class="grey darken-3">
                 <div class="nav-wrapper container">
                     <a href="/" class="brand-logo">Flop</a>
                     <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                    <ul class="right hide-on-med-and-down">
+                    <ul id="ul-sidenav" class="right hide-on-med-and-down">
                         <li><a href="/">Home</a></li>
                         <li><a href="/">About Us</a></li>
-                        <li><a href="/">Sample post</a></li>
                         <li><a href="/">Contact Us</a></li>
                     </ul>
                 </div>
             </nav>
-
             <ul class="sidenav" id="mobile-demo">
                 <li><a class="sidenav-close right" href="/"><i class="material-icons">close</i></a></li>
                 <li><a href="/">Home</a></li>
                 <li><a href="/">About Us</a></li>
-                <li><a href="/">Sample post</a></li>
                 <li><a href="/">Contact Us</a></li>
             </ul>
 

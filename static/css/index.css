@@ -9,6 +9,34 @@ main {
   flex: 1 0 auto;
 }
 
+/* TEMPLATE index */
+#ul-sidenav a{
+  background-color: #424242;
+  color: white;
+}
+#ul-sidenav a:hover{
+  background-color: #e0e0e0;
+  color: #424242;
+}
+
+#floating-action-index a{
+  background-color: #616161;
+  color:white;
+}
+
+#floating-action-index a:hover{
+  background-color: #9e9e9e;
+  color:white;
+}
+
+#floating-action-start{
+  background-color: #616161;
+}
+
+#floating-action-start:hover{
+  background-color: #9e9e9e;
+}
+
 /* TEMPLATE post_new */
 #form-new .input-field input{
   color: #212121;
@@ -48,13 +76,13 @@ main {
   background-color: #212121;
   color: white;
   margin-top:1px;
+  margin-right: 7px;
 }
 
 #modal-back .modal-footer a:hover{
   background-color: #757575;
   color: white;
 }
-
 
 /* TEMPLATE post_edit */
 #form-edit .input-field input{

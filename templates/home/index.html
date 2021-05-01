@@ -2,16 +2,22 @@
 
 {% load static %}
 
+{% block title %}
+    Home | Flop
+{% endblock %} 
+
 {% block parallax %}
     <div id="banner" class="parallax-container valign-wrapper">
         <div class="section no-pad-bot">
             <div class="container valign">
-                <h1 class="header center grey-text text-darken-2">Materialize blog theme</h1>
+                <h1 class="header center grey-text text-darken-2">Worldwide Technologies</h1>
                 <div class="row center">
-                    <h5 class="header col s12 light grey-text text-darken-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</h5>
+                    <h5 class="header col s12 light grey-text text-darken-2">website focused on news from the technological world</h5>
                 </div>
                 <div class="row center">
-                    <a href="#start-post" class="btn-floating btn-large waves-effect waves-light grey darken-2 head-link"><i class="fa fa-angle-double-down"></i></a>
+                    <a id="floating-action-start" href="#start-post" class="btn-floating btn-large waves-effect waves-light head-link">
+                    <i class="large material-icons">keyboard_arrow_down</i>
+                </a>
                 </div>
             </div>
         </div>
@@ -24,7 +30,7 @@
 {% block content %}
     <div class="container" id="start-post">
         {% if user.is_authenticated %}
-            <div class="fixed-action-btn top">
+            <div id="floating-action-index" class="fixed-action-btn top">
                 <a href="{% url 'post_new' %}" class="btn-floating btn-large">
                     <i class="large material-icons">add</i>
                 </a>
@@ -35,15 +41,15 @@
                 {% for post in list_posts %}
                     <div class="post-preview">
                         <a href="{% url 'post_detail' pk=post.pk %}">
-                            <h4 class="post-title titleFont">
-                            {{ post.title }}
+                            <h4 class="post-title titleFont" style="width:auto">
+                                {{ post.title }}
                             </h4>
-                        </a>
-                            <h6 class="post-subtitle subTitleFont">
+                            <h6 class="post-subtitle subTitleFont" style="width:auto">
                                 {{ post.subtitle }}
                                 dssfasdds
                             </h6>
-                    <p class="post-meta">{{ post.published_date }}<a href=""> | {{ post.author }}</a></p>
+                        </a>
+                        <p class="post-meta">{{ post.published_date }} | <a href="">{{ post.author }}</a></p>
                     </div>
                     <div class="divider grey lighten-2"></div>
                 {% endfor %}
