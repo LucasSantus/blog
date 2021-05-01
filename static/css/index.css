@@ -44,6 +44,18 @@ main {
   color: white;
 }
 
+#modal-back .modal-footer a{
+  background-color: #212121;
+  color: white;
+  margin-top:1px;
+}
+
+#modal-back .modal-footer a:hover{
+  background-color: #757575;
+  color: white;
+}
+
+
 /* TEMPLATE post_edit */
 #form-edit .input-field input{
   color: #212121;
