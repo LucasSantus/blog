@@ -3,7 +3,7 @@
 {% block content %}
     {% if user.is_authenticated %}
         <div class="fixed-action-btn top">
-            <a href="{% url 'post_edit' pk=post.pk %}" class="btn-floating btn-large">
+            <a href="{% url 'post_edit' pk=post.pk %}" class="btn-floating btn-large tooltipped" data-position="left" data-tooltip="Edit Post">
                 <i class="large material-icons">edit</i>
             </a>
         </div>

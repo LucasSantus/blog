@@ -31,7 +31,7 @@
     <div class="container" id="start-post">
         {% if user.is_authenticated %}
             <div id="floating-action-index" class="fixed-action-btn top">
-                <a href="{% url 'post_new' %}" class="btn-floating btn-large">
+                <a href="{% url 'post_new' %}" class="btn-floating btn-large tooltipped" data-position="left" data-tooltip="Add New Post">
                     <i class="large material-icons">add</i>
                 </a>
             </div>
