@@ -3,6 +3,7 @@ from django.utils import timezone
 from .forms import PostForm
 
 def post_new(request):
+    form = PostForm()
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -10,12 +11,10 @@ def post_new(request):
             post.author = request.user
             post.published_date = timezone.now()
             post.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = PostForm()
+            return redirect('index')
         
     context = {
         "form": form,
     }
     
-    return render(request, 'administracao/post_edit.html', context)
+    return render(request, 'cadastro/post_new.html', context)

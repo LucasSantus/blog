@@ -1,30 +1,58 @@
-{% extends 'base.html' %}
+{% extends 'bases/base.html' %}
 
-{% block content %}
-    {% if user.is_authenticated %}
-        <div class="fixed-action-btn top">
-            <a href="{% url 'post_new' %}" class="btn-floating btn-large">
-                <i class="large material-icons">add</i>
-            </a>
-        </div>
-    {% endif %}
+{% load static %}
 
-    <div class="container">
-        {% for post in list_posts %}
-            <div class="card z-depth-2">
-                <div class="container" style="padding-bottom: 0.5%">
-                    <div class="post">
-                        <h2>
-                            <a href="{% url 'post_detail' pk=post.pk %}" class="truncate title">{{ post.title }}</a>
-                        </h2>
-                            <p class="truncate">{{ post.text }}
-                            <div class="data_publicacao">
-                                {{ post.published_date }}
-                            </div>
-                        </p>
-                    </div>
+{% block title %}
+    Home | Flop
+{% endblock %} 
+
+{% block parallax %}
+    <div id="banner" class="parallax-container valign-wrapper">
+        <div class="section no-pad-bot">
+            <div class="container valign">
+                <h1 class="header center grey-text text-darken-2">Worldwide Technologies</h1>
+                <div class="row center">
+                    <h5 class="header col s12 light grey-text text-darken-2">website focused on news from the technological world</h5>
+                </div>
+                <div class="row center">
+                    <a id="floating-action-start" href="#start-post" class="btn-floating btn-large waves-effect waves-light head-link">
+                    <i class="large material-icons">keyboard_arrow_down</i>
+                </a>
                 </div>
             </div>
-        {% endfor %}
+        </div>
+        <div class="parallax">
+            <img src="{% static 'images/main.jpg' %}" alt="Banner de Fundo" style="background-image: url(&quot;{% static 'images/main.jpg' %}&quot;); bottom: 0px; display: block;">
+        </div>
+    </div> 
+{% endblock %} 
+
+{% block content %}
+    <div class="container" id="start-post">
+        {% if user.is_authenticated %}
+            <div id="floating-action-index" class="fixed-action-btn top">
+                <a href="{% url 'post_new' %}" class="btn-floating btn-large">
+                    <i class="large material-icons">add</i>
+                </a>
+            </div>
+        {% endif %}
+        <div class="row">
+            <div class="col s12 m10 offset-m1 l9 offset-l1">
+                {% for post in list_posts %}
+                    <div class="post-preview">
+                        <a href="{% url 'post_detail' pk=post.pk %}">
+                            <h4 class="post-title titleFont" style="width:auto">
+                                {{ post.title }}
+                            </h4>
+                            <h6 class="post-subtitle" style="font-size: 24px">
+                                {{ post.subtitle }}
+                            </h6>
+                        </a>
+                        <p class="post-meta">{{ post.published_date }} | <a href="">{{ post.author }}</a></p>
+                    </div>
+                    <div class="divider grey lighten-2"></div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}
