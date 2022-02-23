@@ -1,58 +1,78 @@
-{% extends 'bases/base.html' %}
+{% extends 'base.html' %}
 
 {% load static %}
 
 {% block title %}
-    Home | Flop
-{% endblock %} 
+    Folders
+{% endblock %}
 
-{% block parallax %}
-    <div id="banner" class="parallax-container valign-wrapper">
-        <div class="section no-pad-bot">
-            <div class="container valign">
-                <h1 class="header center grey-text text-darken-2">Worldwide Technologies</h1>
-                <div class="row center">
-                    <h5 class="header col s12 light grey-text text-darken-2">website focused on news from the technological world</h5>
-                </div>
-                <div class="row center">
-                    <a id="floating-action-start" href="#start-post" class="btn-floating btn-large waves-effect waves-light head-link">
-                    <i class="large material-icons">keyboard_arrow_down</i>
-                </a>
-                </div>
-            </div>
-        </div>
-        <div class="parallax">
-            <img src="{% static 'images/main.jpg' %}" alt="Banner de Fundo" style="background-image: url(&quot;{% static 'images/main.jpg' %}&quot;); bottom: 0px; display: block;">
-        </div>
-    </div> 
-{% endblock %} 
+{% block breadcrumb %}
+    <!-- <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active bg-light p-2 rounded" aria-current="page">Dashboard</li>
+        </ol>
+    </nav> -->
+{% endblock %}
 
 {% block content %}
-    <div class="container" id="start-post">
-        {% if user.is_authenticated %}
-            <div id="floating-action-index" class="fixed-action-btn top">
-                <a href="{% url 'post_new' %}" class="btn-floating btn-large tooltipped" data-position="left" data-tooltip="Add New Post">
-                    <i class="large material-icons">add</i>
-                </a>
-            </div>
-        {% endif %}
-        <div class="row">
-            <div class="col s12 m10 offset-m1 l9 offset-l1">
-                {% for post in list_posts %}
-                    <div class="post-preview">
-                        <a href="{% url 'post_detail' pk=post.pk %}">
-                            <h4 class="post-title titleFont" style="width:auto">
-                                {{ post.title }}
-                            </h4>
-                            <h6 class="post-subtitle" style="font-size: 24px">
-                                {{ post.subtitle }}
-                            </h6>
-                        </a>
-                        <p class="post-meta">{{ post.published_date }} | <a href="">{{ post.author }}</a></p>
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+        <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+        <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+        </div>
+    </div>
+
+    <div class="row mb-2">
+        {% for new_tutorial in new_tutorials %}
+            <div class="col-md-6">
+                <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                    <div class="col p-4 d-flex flex-column position-static">
+                        <strong class="d-inline-block mb-2 text-success">{{new_tutorial.category.title}}
+                            <span class="badge rounded-pill bg-success">new</span>
+                        </strong>
+
+                        <h3 class="mb-0">{{new_tutorial.title}}</h3>
+
+                        <div class="mb-1 text-muted">
+                            {{new_tutorial.time_registered.date|date:"d M, Y"}}
+                        </div>
+
+                        <p class="card-text mb-auto">{{new_tutorial.resume}}</p>
+                        <a href="#" class="stretched-link">Leia Mais</a>
                     </div>
-                    <div class="divider grey lighten-2"></div>
-                {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row g-5">
+        <div class="col-md-8">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                Tutoriais
+            </h3>
+
+            {% for tutorial in tutorials %}
+                <article class="blog-post">
+                    <h2 class="blog-post-title">{{tutorial.title}}</h2>
+                    <p class="blog-post-meta">{{tutorial.time_registered|date:"m d, Y"}} by <a href="#">{{tutorial.author.get_short_name}}</a></p>
+                    <p>{{tutorial.description}}</p>
+                </article>
+            {% endfor %}
+            <nav class="blog-pagination" aria-label="Pagination">
+                <a class="btn btn-outline-primary" href="#">Older</a>
+                <a class="btn btn-outline-secondary disabled">Newer</a>
+            </nav>
+        </div>
+
+        <div class="col-md-4">
+            <div class="position-sticky" style="top: 2rem;">
+                <div class="p-4 mb-3 bg-light rounded">
+                    <h4 class="fst-italic">About</h4>
+                    <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+                </div>
             </div>
         </div>
     </div>
 {% endblock %}
+

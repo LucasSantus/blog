@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from django.utils import timezone
-from cadastro.models import Post
+from blog.models import Post
+
+def base(request):
+    context = { 
+    	'date': 2020
+    }
+    return context
 
 def index(request):
     list_posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date') 

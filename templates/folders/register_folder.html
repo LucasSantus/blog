@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load bootstrap %}
+
+{% block title %}
+    {{ action }} Folder
+{% endblock %}
+
+{% block content %}
+    <div class="modal fade" id="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <p class="text-muted fs-3 text-center">{{action}}</p>
+                        {{form|bootstrap}}
+                        <div class="d-flex justify-content-end pt-3 gap-2">
+                            <a href="/" class="btn btn-secondary">
+                                Cancel
+                            </a>
+                            <button class="btn btn-primary">
+                                {{action}}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(document).ready(function(){
+            
+            $("#modal").modal('show');
+            $("#id_title").attr("required", false);
+            $("#id_title").focus()
+        });
+    </script>
+{% endblock %}

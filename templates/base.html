@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="pt-br" class="dark">
+    <!-- BEGIN: HEAD -->
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+        <meta name="description" content="">
+        <meta name="author" content="Lucas Eduardo de Oliveira Santos">
+
+        <!-- Let browser know website is optimized for mobile -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+
+        <!-- Import Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+
+        <!-- BEGIN: CSS ASSETS -->
+
+        <!-- Import Css Bootstrap -->
+        <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+
+        <!-- Import Css Folder -->
+        <link href="{% static 'css/folder.css' %}" rel="stylesheet">
+        
+        <!-- Import Css Template -->
+        <link href="{% static 'css/template/blog.css' %}" rel="stylesheet">
+
+        <!-- Import Css Index -->
+        <link href="{% static 'css/index.css' %}" rel="stylesheet">
+
+        {% block css %}
+        {% endblock %}
+        <!-- END: CSS ASSETS -->
+
+        <!-- BEGIN: TITLE -->
+        <title>
+            {% block title %}
+            {% endblock %}
+        </title>
+        <!-- END: TITLE -->
+
+    </head>
+    <!-- END: HEAD -->
+
+    <body>
+        <div class="container">
+            <header class="blog-header py-3">
+                <div class="row d-flex justify-content-between align-items-center">
+                    <div class="col-8">
+                        <a class="blog-header-logo text-dark" href="#">Large</a>
+                    </div>
+                    <div class="col-4 d-flex justify-content-end align-items-center">
+                        <a class="btn btn-sm btn-outline-secondary ms-1" href="#">Sign up</a>
+                        <a class="btn btn-sm btn-outline-secondary ms-1" href="#">Sign in</a>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="nav-scroller py-1 mb-2">
+                <nav class="nav d-flex justify-content-center">
+                    {% if categorys %}
+                        {% for category in categorys %}
+                            <a class="p-2 link-secondary" href="#">{{category.title}}</a>
+                        {% endfor %}
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+
+        <main class="container">
+            <!-- BEGIN: CONTENT -->
+                {% block content %}
+                {% endblock %}
+            <!-- END: CONTENT -->
+        </main>    
+
+        <footer class="blog-footer">
+            <p>
+                <a href="#">Back to top</a>
+            </p>
+        </footer>
+
+        {{date}}
+
+        <!-- BEGIN: JS ASSETS -->
+
+        <!-- Import Js Jquery -->
+        <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
+
+        <!-- Import Js Bootstrap -->
+        <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+
+        <!-- Import Js Bootstrap Bundle -->
+        <script src="{% static 'js/bootstrap/bundle/bootstrap.bundle.min.js' %}"></script>
+
+        <!-- Import Js Index -->
+        <script src="{% static 'js/index.js' %}"></script>
+
+        <!-- END: JS ASSETS -->
+
+        <script>
+            $(document).ready(function(){
+                $(".toast").toast('show');
+            });
+        </script>
+
+        <!-- BEGIN: MESSAGES -->
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="position-fixed bottom-0 top-2 right-5 p-3" style="z-index: 5; right: 0; bottom: 0; top:0; margin-top: 60px;">
+                        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
+                            <div class="toast-header">
+                                <strong class="me-auto text-{{message.tags}}">
+                                    {% if message.tags == 'success'%}
+                                        Opa, Sucesso...
+                                    {% elif message.tags == 'info'%}
+                                        Informações para você...
+                                    {% elif message.tags == 'warning'%} 
+                                        Ops! Falhas a vista....
+                                    {% elif message.tags == 'error'%}
+                                        Ops! Ocorreu algum erro....
+                                    {% endif %}</strong>
+                                <small class="text-muted">just now</small>
+                                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                            </div>
+                            <div class="toast-body text-{{message.tags}}">
+                                {{message}}
+                            </div>
+                        </div>
+                </div>
+            {% endfor %}    
+        {% endif %}
+
+        <!-- END: MESSAGES -->
+
+        {% block script %}
+        {% endblock %}
+    </body>
+</html>
