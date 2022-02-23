@@ -1,6 +1,4 @@
-from django.conf import settings
 from django.db import models
-from django.utils import timezone
 from django.db import models
 from autoslug import AutoSlugField
 
@@ -19,9 +17,10 @@ class Category(models.Model):
         return self.title
 
 class Post(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name="Author", related_name = "author_TutorialFK")
-    title = models.CharField(verbose_name = "Título", max_length = 120)
-    subtitle = models.CharField(verbose_name = "Resumo", max_length = 100, null = True)
+    author = models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE, verbose_name="Author", related_name = "author_TutorialFK")
+    title = models.CharField(verbose_name = "Título", max_length = 50)
+    subtitle = models.CharField(verbose_name = "Sub Título", max_length = 120, null = True)
+    resume = models.CharField(verbose_name = "Resumo", max_length = 200, blank = True, null = True)
     description = models.TextField(verbose_name = "Descrição", blank = True, null = True)
     category = models.ForeignKey(Category, related_name = "category_TutorialFK", on_delete = models.CASCADE)
     slug = AutoSlugField(populate_from = 'title', unique = True, editable = True, null = True, blank = True)

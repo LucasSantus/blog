@@ -13,6 +13,7 @@ urlpatterns = [
     # INCLUDE APPS
     path('', include('home.urls')),
     path('', include('blog.urls')), 
+    path('', include('usuarios.urls')), 
 ]
 
 # INCLUDE STATIC
