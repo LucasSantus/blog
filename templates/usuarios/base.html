@@ -49,31 +49,8 @@
     </head>
     <!-- END: HEAD -->
 
-    <body>
-        <div class="container">
-            <header class="blog-header py-3">
-                <div class="row d-flex justify-content-between align-items-center">
-                    <div class="col-8">
-                        <a class="blog-header-logo text-dark" href="/">Blog</a>
-                    </div>
-                    <div class="col-4 d-flex justify-content-end align-items-center">
-                        {% if request.user.is_authenticated %}
-                            <a class="btn btn-outline-secondary rounded-pill" href="{% url 'logout' %}">Logout</a>
-                        {% else %}
-                            <a class="btn btn-outline-secondary rounded-pill" href="{% url 'login' %}">Conectar</a>
-                            <a class="btn btn-outline-secondary rounded-pill ms-1" href="{% url 'signup' %}">Registrar</a>
-                        {% endif %}
-                    </div>
-                </div>
-            </header>
-        </div>
-
-        <main class="container">
-            <!-- BEGIN: BREADCRUMB -->
-                {% block breadcrumb %}
-                {% endblock %}
-            <!-- END: BREADCRUMB -->
-
+    <body class="bg-light">
+        <main class="container min-vh-100">
             <!-- BEGIN: CONTENT -->
                 {% block content %}
                 {% endblock %}
@@ -83,11 +60,6 @@
             </div>
         </main>    
 
-        <footer class="bg-light">
-            <div class="p-3 d-flex justify-content-center align-items-center">
-                <a href="#">Back to top</a>
-            </div>
-        </footer>
         <!-- BEGIN: JS ASSETS -->
 
         <!-- Import Js Jquery -->

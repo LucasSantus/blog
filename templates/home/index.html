@@ -3,73 +3,123 @@
 {% load static %}
 
 {% block title %}
-    Folders
-{% endblock %}
-
-{% block breadcrumb %}
-    <!-- <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active bg-light p-2 rounded" aria-current="page">Dashboard</li>
-        </ol>
-    </nav> -->
+    Dashboard | BLOG
 {% endblock %}
 
 {% block content %}
-    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-        <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-        <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+    {% if not user.is_authenticated %}
+        <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+            <div class="col-md-6 px-0">
+                <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+                <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+                <p class="lead mb-0"><a href="#postagens" class="text-white fw-bold">Veja Mais...</a></p>
+            </div>
         </div>
-    </div>
+    {% endif %}
 
     <div class="row mb-2">
-        {% for new_tutorial in new_tutorials %}
+        {% for new_post in new_posts %}
             <div class="col-md-6">
                 <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                     <div class="col p-4 d-flex flex-column position-static">
-                        <strong class="d-inline-block mb-2 text-success">{{new_tutorial.category.title}}
+                        <strong class="d-inline-block mb-2 text-success">{{new_post.category.title}}
                             <span class="badge rounded-pill bg-success">new</span>
                         </strong>
 
-                        <h3 class="mb-0">{{new_tutorial.title}}</h3>
+                        <h3 class="mb-0">{{new_post.title}}</h3>
 
                         <div class="mb-1 text-muted">
-                            {{new_tutorial.time_registered.date|date:"d M, Y"}}
+                            {{new_post.time_registered.date|date:"d M, Y"}}
                         </div>
 
-                        <p class="card-text mb-auto">{{new_tutorial.resume}}</p>
-                        <a href="#" class="stretched-link">Leia Mais</a>
+                        <p class="card-text mb-auto">{{new_post.resume}}</p>
+
+                        <a href="#" class="h6 mt-2">Leia Mais</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
 
-    <div class="row g-5">
+    <div id="postagens" class="row g-5">
         <div class="col-md-8">
-            <h3 class="pb-4 mb-4 fst-italic border-bottom">
-                Tutoriais
-            </h3>
+            <div class="p-3">
+                <div class="row">
+                    <div class="col-12 col-sm-11">
+                        <h3 class="fst-italic">
+                            Postagens
+                        </h3>
+                    </div>
+                    
+                    {% if user.is_authenticated %}
+                        <div class="col-12 col-sm-1 d-flex justify-content-center">
+                            <a href="{% url 'register_post' %}" class="btn-rounded-icon text-decoration-none">
+                                <span class="material-icons border border-2 border-primary rounded-circle">add</span>
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
 
-            {% for tutorial in tutorials %}
+            {% for post in page_posts %}
                 <article class="blog-post">
-                    <h2 class="blog-post-title">{{tutorial.title}}</h2>
-                    <p class="blog-post-meta">{{tutorial.time_registered|date:"m d, Y"}} by <a href="#">{{tutorial.author.get_short_name}}</a></p>
-                    <p>{{tutorial.description}}</p>
+                    <h2 class="blog-post-title">{{post.title}}</h2>
+                    <p class="blog-post-meta">{{post.time_registered|date:"d M, Y"}} by <a href="#">{{post.author.get_short_name}}</a></p>
+                    <p>{{post.description}}</p>
                 </article>
             {% endfor %}
-            <nav class="blog-pagination" aria-label="Pagination">
-                <a class="btn btn-outline-primary" href="#">Older</a>
-                <a class="btn btn-outline-secondary disabled">Newer</a>
+
+            <nav class="blog-pagination d-flex justify-content-end" aria-label="Pagination">
+                <span class="d-flex align-items-center m-1">
+                    Página {{ page_posts.number }} de {{ page_posts.paginator.num_pages }}
+                </span>
+
+                {% if page_posts.has_previous %}
+                    <a class="btn btn-outline-primary m-1" href="?page={{ page_posts.previous_page_number }}">Anterior</a>
+                {% else %}
+                    <a class="btn btn-outline-secondary m-1 disabled">Anterior</a>
+                {% endif %}
+
+                {% if page_posts.has_next %}
+                    <a class="btn btn-outline-primary m-1" href="?page={{ page_posts.next_page_number }}">Próxima</a>
+                {% else %}
+                    <a class="btn btn-outline-secondary m-1 disabled">Próxima</a>
+                {% endif %}
             </nav>
         </div>
 
         <div class="col-md-4">
             <div class="position-sticky" style="top: 2rem;">
-                <div class="p-4 mb-3 bg-light rounded">
-                    <h4 class="fst-italic">About</h4>
-                    <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+                {% if not user.is_authenticated %}
+                    <div class="p-4 mb-3 bg-light rounded">
+                        <h4 class="fst-italic">About</h4>
+                        <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+                    </div>
+                {% endif %}
+
+                <div class="p-3">
+                    <div class="row">
+                        <div class="col-12 col-sm-11">
+                            <h4 class="fst-italic">Categorias</h4>
+                        </div>
+                        {% if user.is_authenticated %}
+                            <div class="col-12 col-sm-1 d-flex justify-content-center">
+                                <a href="{% url 'register_post' %}" class="btn-rounded-icon text-decoration-none">
+                                    <span class="material-icons border border-2 border-primary rounded-circle">add</span>
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <ol class="list-unstyled mb-0">
+                        {% if categorys %}
+                            {% for category in categorys %}
+                            <li>
+                                <a class="text-decoration-none" href="#">{{category.title}}</a>
+                            </li>
+                            {% endfor %}
+                        {% endif %}
+                    </ol>
                 </div>
             </div>
         </div>
