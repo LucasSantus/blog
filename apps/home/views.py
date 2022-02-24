@@ -1,10 +1,11 @@
 from django.shortcuts import render
 from blog.models import *
 from django.core.paginator import Paginator
+import datetime
 
 def base(request):
     context = { 
-    	'date': 2020
+    	'year': datetime.datetime.now().year
     }
     return context
 

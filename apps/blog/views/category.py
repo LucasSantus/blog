@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from blog.models import Category
+from blog.models import Category, Post
 from blog.forms import CategoryForm
 from django.contrib import messages
 
@@ -16,7 +16,6 @@ def register_category(request):
         "form": form,
         "action": "Registrar"
     }
-
     return render(request, 'blog/category/register_category.html', context)
 
 def modify_category(request, slug_category):
@@ -28,23 +27,32 @@ def modify_category(request, slug_category):
             form.save()
             messages.success(request, f"Categoria modificada com sucesso!")
             return redirect('detail_category', slug = category.slug)
-
+   
     context = {
         "form": form,
         "action": "Modificar",
     }
-
     return render(request, 'blog/category/register_category.html', context)
 
 def detail_category(request, slug_category):
     category = Category.objects.get(slug = slug_category)
+
     context = {
         "category": category,
     }
-
     return render(request, 'blog/category/detail_category.html', context)
 
 def delete_category(request, slug_category):
     Category.objects.get(slug = slug_category).delete()
-
+    messages.success(request, f"Categoria deletada! com sucesso!")
     return redirect("/")
+
+def view_posts_category(request, slug_category):
+    category = Category.objects.get(slug = slug_category)
+    posts = Post.objects.select_related('author', 'category').filter(category__id = category.id) 
+
+    context = {
+        "category": category,
+        "posts": posts
+    }
+    return render(request, 'blog/category/view_posts_category.html', context)

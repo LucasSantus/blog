@@ -3,7 +3,7 @@ from django.db import models
 from autoslug import AutoSlugField
 
 class Category(models.Model):
-    title = models.CharField(verbose_name = "Título", max_length = 120)
+    title = models.CharField(verbose_name = "Título", max_length = 50)
     slug = AutoSlugField(populate_from = 'title', unique = True, editable = True, null = True, blank = True)
     time_registered = models.DateTimeField(verbose_name = "Data & Horário registrado", auto_now_add = True)
     
@@ -18,11 +18,11 @@ class Category(models.Model):
 
 class Post(models.Model):
     author = models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE, verbose_name="Author", related_name = "author_TutorialFK")
+    category = models.ForeignKey(Category, related_name = "category_TutorialFK", on_delete = models.CASCADE)
     title = models.CharField(verbose_name = "Título", max_length = 50)
     subtitle = models.CharField(verbose_name = "Sub Título", max_length = 120, null = True)
     resume = models.CharField(verbose_name = "Resumo", max_length = 200, blank = True, null = True)
     description = models.TextField(verbose_name = "Descrição", blank = True, null = True)
-    category = models.ForeignKey(Category, related_name = "category_TutorialFK", on_delete = models.CASCADE)
     slug = AutoSlugField(populate_from = 'title', unique = True, editable = True, null = True, blank = True)
     time_registered = models.DateTimeField(verbose_name = "Data & Horário registrado", auto_now_add = True)
     
