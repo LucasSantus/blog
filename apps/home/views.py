@@ -11,11 +11,10 @@ def base(request):
 
 def index(request):
     categorys = Category.objects.all()
-    posts = Post.objects.select_related('category', 'author').all().order_by('-time_registered')
+    posts = Post.objects.select_related('category', 'author').all().order_by('-time_registered')[2:]
+    new_posts = Post.objects.select_related('category', 'author').all().order_by('-time_registered')[:2]
 
-    new_posts = posts[:2]
-
-    paginator = Paginator(posts, 1)
+    paginator = Paginator(posts, 10)
 
     page_number = request.GET.get('page')
     page_posts = paginator.get_page(page_number)

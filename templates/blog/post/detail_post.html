@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Detalhes | {{post.title}}
+{% endblock %}
+
+{% block breadcrumb %}
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item opacity-hover"><a href="{% url 'view_posts_category' post.category.slug %}">{{post.category.title}}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
+        </ol>
+  </nav>
+{% endblock %}
+
+{% block content %}
+    <h1 class="h3 text-gray-800">{{post.title}}</h1>
+    <h1 class="h6 text-muted">{{post.subtitle}}</h1>
+    
+    <p class="mt-5">
+        {{post.description}}
+    </p>
+
+    <div class="d-flex justify-content-end w-100">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end">
+                <span>
+                    {{post.time_registered}}
+                </span>
+            </div>
+            <div class="col-12 d-flex justify-content-end">
+                <span>
+                    <a href="#" class="opacity-hover">{{post.author}}</a>
+                </span>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

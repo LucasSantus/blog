@@ -32,7 +32,7 @@
 
                         <p class="card-text mb-auto">{{new_post.resume}}</p>
 
-                        <a href="#" class="h6 mt-2">Leia Mais</a>
+                        <a href="{% url 'detail_post' new_post.slug %}" class="h6 mt-2 opacity-hover">Leia Mais</a>
                     </div>
                 </div>
             </div>
@@ -45,28 +45,23 @@
                 <div class="row">
                     <div class="col-12 col-sm-11">
                         <h3 class="fst-italic">
-                            Postagens
+                            Outras Postagens
                         </h3>
                     </div>
-                    
-                    <!-- {% if user.is_authenticated %}
-                        <div class="col-12 col-sm-1 d-flex justify-content-center">
-                            <a href="{% url 'register_post' %}" class="btn-rounded-icon text-decoration-none">
-                                <span class="material-icons border border-2 border-primary rounded-circle">add</span>
-                            </a>
-                        </div>
-                    {% endif %} -->
                 </div>
             </div>
 
             {% if page_posts %}
-                {% for post in page_posts %}
-                    <article class="blog-post">
-                        <h2 class="blog-post-title">{{post.title}}</h2>
-                        <p class="blog-post-meta">{{post.time_registered|date:"d M, Y"}} by <a href="#">{{post.author.get_short_name}}</a></p>
-                        <p>{{post.description}}</p>
-                    </article>
-                {% endfor %}
+                <div class="p-3">   
+                    {% for post in page_posts %}
+                        <article class="blog-post">
+                            <h2 class="blog-post-title">{{post.title}}</h2>
+                            <p class="blog-post-meta">{{post.time_registered|date:"d M, Y"}} by <a href="#">{{post.author.get_short_name}}</a></p>
+                            <p>{{post.description}}</p>
+                            <a href="#" class="h6 mt-2">Leia Mais</a>
+                        </article>
+                    {% endfor %}
+                </div>
 
                 <nav class="blog-pagination d-flex justify-content-end" aria-label="Pagination">
                     <span class="d-flex align-items-center m-1">
@@ -120,33 +115,35 @@
                     <ol class="list-unstyled mb-0">
                         {% if categorys %}
                             {% for category in categorys %}
-                            <li>
-                                <div class="row">
-                                    <div class="col-10">
-                                        <a class="text-decoration-none opacity-hover" href="{% url 'view_posts_categorys' category.slug %}">{{category.title}}</a>
-                                    </div>
-                                    <div class="col-2">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <a href="#">
-                                                    <span class="material-icons text-success opacity-hover" style="font-size: 20px;">edit</span>
-                                                </a>
-                                            </div>
-                                            <div class="col-6">
-                                                <a href="#">
-                                                    <span class="material-icons text-danger opacity-hover" style="font-size: 20px;">delete</span>
-                                                </a>
-                                            </div>
+                                <li>
+                                    <div class="row ps-4">
+                                        <div class="col-10">
+                                            <a class="text-decoration-none opacity-hover" href="{% url 'view_posts_category' category.slug %}">{{category.title}}</a>
                                         </div>
+                                        {% if user.is_authenticated %}
+                                            <div class="col-2">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <a href="{% url 'modify_category' category.slug %}">
+                                                            <span class="material-icons text-success opacity-hover" style="font-size: 20px;">edit</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <a href="{% url 'delete_category' category.slug %}">
+                                                            <span class="material-icons text-danger opacity-hover" style="font-size: 20px;">delete</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                        {% endif %}
                                     </div>
-                                </div>
-                            </li>
+                                </li>
                             {% endfor %}
                         {% endif %}
                     </ol>
                 </div>
             </div>
         </div>
-    </div>
+    </div>  
 {% endblock %}
-

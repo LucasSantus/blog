@@ -1,7 +1,7 @@
+let time = 3000;
 
 // Função para criar toast's
 function generate_toast(type, title, message){
-    let time = 3000;
     $(`
     <div class="position-fixed bottom-0 top-2 right-5 p-3" style="z-index: 5; right: 0; bottom: 0; top: 0">
         <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="${time}">
