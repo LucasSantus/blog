@@ -35,7 +35,7 @@ _"Criar um Blog onde o mesmo tenha um design simples e belo, com intuito de prom
 <h3 id="status">:heavy_exclamation_mark: Status do Projeto</h3>
 
 <h4 align="center"> 
-	🚧: Sistema Web em construção... 🚧:
+	🚧 Sistema Web em construção... 🚧
 </h4>
 
 --------------------------------------------------------------------------------------
@@ -55,14 +55,25 @@ Este é um projeto totalmente grátis!
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Django Framework](https://www.djangoproject.com/)
-- [Boostrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 
 --------------------------------------------------------------------------------------
 
 <h3 id="funcionalidades">:sparkles: Funcionalidades</h3>
 
-- [X] Possibilita a criação de pastas.
-- [X] Possibilita a criação de varias sub pastas.
+- [X] Possibilita a criação de conta.
+- [X] Possibilita a recuperação de conta.
+
+- [X] Possibilita a criação de categorias.
+- [X] Possibilita a visualização detalhada de categorias.
+- [X] Possibilita a edição de categorias.
+- [X] Possibilita a remoção de categorias.
+
+- [X] Possibilita a criação de postagens por categoria.
+- [X] Possibilita a visualização de postagens categoria.
+- [X] Possibilita a visualização detalhada de postagens.
+- [X] Possibilita a edição de postagens.
+- [X] Possibilita a remoção de postagens.
 
 --------------------------------------------------------------------------------------
 
