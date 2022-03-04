@@ -9,7 +9,7 @@
 {% block content %}
     <div class="mt-3 p-4 p-md-5 mb-4 text-white rounded bg-dark">
         <div class="col-md-6 px-0">
-            <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
+            <h1 class="display-4 fst-italic">Visualize postagens</h1>
             <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
             <p class="lead mb-0"><a href="#postagens" class="text-white fw-bold">Veja Mais...</a></p>
         </div>
@@ -118,7 +118,7 @@
                                 <li>
                                     <div class="row ps-4">
                                         <div class="col-10">
-                                            <a class="text-decoration-none opacity-hover" href="{% url 'view_posts_category' category.slug %}">{{category.title}}</a>
+                                            <a class="text-decoration-none opacity-hover" href="{% url 'view_posts_category' category.slug %}">#{{category.title}}</a>
                                         </div>
                                         {% if user.is_authenticated %}
                                             <div class="col-2">
