@@ -4,7 +4,6 @@ from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, Permis
 # from autoslug import AutoSlugField
 from autoslug import AutoSlugField
 
-
 class UsuarioManager(BaseUserManager):
     def create_user(self, email, name, last_name, password = None, **kwargs):
         if not email:
@@ -47,10 +46,9 @@ class UsuarioManager(BaseUserManager):
 class Usuario(AbstractBaseUser, PermissionsMixin):
     name = models.CharField(verbose_name = "Nome", max_length = 60)
     last_name = models.CharField(verbose_name = "Sobrenome", max_length = 150)
+    description = models.TextField(verbose_name = "Descrição", null = True, blank = True)
     email = models.EmailField(verbose_name = "E-mail", max_length = 194, unique = True) 
-    birth_date = models.DateField(verbose_name = "Data de nascimento", auto_now_add = False, auto_now = False, null = True, blank = True)
-    cell_phone = models.CharField(verbose_name = "Celular", max_length = 16, null = True, blank = True)
-    slug = AutoSlugField(populate_from = 'name', unique_with = ['name', 'last_name'], unique = True, editable = True, null = True, blank = True)
+    slug = AutoSlugField(populate_from = 'get_full_name', unique_with = ['name', 'last_name'], unique = True, editable = True)
     is_active = models.BooleanField(verbose_name = "Usuário ativo", default = True)
     is_staff = models.BooleanField(verbose_name = "Usuário desenvolvedor", default = False)
     is_superuser = models.BooleanField(verbose_name = "Super usuário", default = False)

@@ -1,20 +1,20 @@
 from django.shortcuts import render
 from blog.models import *
 from django.core.paginator import Paginator
+import datetime
 
 def base(request):
     context = { 
-    	'date': 2020
+    	'year': datetime.datetime.now().year
     }
     return context
 
 def index(request):
     categorys = Category.objects.all()
-    posts = Post.objects.select_related('category', 'author').all().order_by('-time_registered')
+    posts = Post.objects.select_related('category', 'author').all().order_by('-time_registered')[2:]
+    new_posts = Post.objects.select_related('category', 'author').all().order_by('-time_registered')[:2]
 
-    new_posts = posts[:2]
-
-    paginator = Paginator(posts, 1)
+    paginator = Paginator(posts, 2)
 
     page_number = request.GET.get('page')
     page_posts = paginator.get_page(page_number)

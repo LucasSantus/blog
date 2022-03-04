@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+    Categoria {{category.title}}
+{% endblock %}
+
+{% block content %}
+    <div class="p-3">
+        <div class="row">
+            <div class="col-12 col-sm-6">
+                <h3 class="fst-italic">
+                    Postagens
+                </h3>
+                <span class="fs-6 text-muted">
+                    #{{category.title}}
+                </span>
+            </div>
+            <div class="col-12 col-sm-6">
+                {% if user.is_authenticated %}
+                    <div class="d-flex justify-content-end">
+                        <a class="btn btn-primary" href="{% url 'register_post' category.slug %}">Registrar Postagem</a>
+                    </div>  
+                {% endif %}
+            </div> 
+        </div>
+    </div>
+
+    {% if page_posts %}
+        <div class="p-3">   
+            {% for post in page_posts %}
+                <article class="blog-post">
+                    <h2 class="blog-post-title">{{post.title}}</h2>
+                    <p class="blog-post-meta">{{post.time_registered|date:"d M, Y"}} by <a href="{% url 'description_user' post.author.slug %}">{{post.author.get_short_name}}</a></p>
+                    <p>{{post.description}}</p>
+                    <a href="{% url 'detail_post' post.slug %}" class="h6 mt-2">Leia Mais</a>
+                </article>
+            {% endfor %}
+        </div>
+        <nav class="blog-pagination" aria-label="Pagination">
+            {% if page_posts.has_previous %}
+                <a class="btn btn-outline-primary m-1" href="?page={{ page_posts.previous_page_number }}">Anterior</a>
+            {% else %}
+                <a class="btn btn-outline-secondary m-1 disabled">Anterior</a>
+            {% endif %}
+
+            {% if page_posts.has_next %}
+                <a class="btn btn-outline-primary m-1" href="?page={{ page_posts.next_page_number }}">Próxima</a>
+            {% else %}
+                <a class="btn btn-outline-secondary m-1 disabled">Próxima</a>
+            {% endif %}
+        </nav>
+    {% else %}
+        <div class="mt-5 text-center">
+            <span class="text-muted">
+                Atualmente não há postagens disponiveis!
+            </span>
+        </div>
+    {% endif %}
+{% endblock %}
