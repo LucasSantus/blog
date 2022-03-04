@@ -10,33 +10,34 @@
 
 {% block content %}
     <div class="row d-flex justify-content-center align-items-center min-vh-100">
-        <div class="col-lg-5 border border-2 p-4 bg-white rounded-3 shadow">
-            <div class="text-center">
-                <h1 class="h4 text-gray-800">Conectar ao sistema</h1>
+        <form class="row d-flex justify-content-center" method="POST">
+            <div class="text-center pt-3">
+                <h1 class="h4 text-gray-800">Conectar ao sistema!</h1>
             </div>
-            <form method="POST" class="px-5">
-                {% csrf_token %}
+            {% csrf_token %}
+            <div class="col-12 col-sm-6">
+                <hr>
+
                 {{form|bootstrap}}
 
-                <div class="form-check form-switch py-2">
-                    <input class="form-check-input" type="checkbox" role="switch" id="check_login">
+                <div class="form-check form-switch pt-2">
+                    <input class="form-check-input" type="checkbox" id="check_login">
                     <label class="form-check-label" for="check_login">Mostrar Senha</label>
                 </div>
 
-                <button class="btn btn-primary">
-                    Login
-                </button>
-                <hr>
-            </form>
-            <div class="text-center">
-                <a class="text-decoration-none" href="{% url 'reset_password' %}">Esqueceu a senha?</a>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary">
+                        Login
+                    </button>
+                </div>
+
+                <div class="text-center pt-3">
+                    <a class="small" href="{% url 'reset_password' %}">Esqueceu a senha?</a><br />
+                    <a class="small" href="{% url 'signup' %}">Criar uma conta!</a>
+                </div>
             </div>
-            <div class="text-center">
-                <a class="text-decoration-none" href="{% url 'signup' %}">Criar uma conta!</a>
-            </div>
-        </div>
-    </div>
-                   
+        </form>
+    </div>      
 {% endblock %}
 
 {% block script %}

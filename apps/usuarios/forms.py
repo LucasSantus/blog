@@ -25,36 +25,50 @@ class UsuarioForm(forms.ModelForm):
 
     class Meta:
         model = Usuario
-        # fields = ["nome", "sobrenome", "email", "data_nascimento", "celular",  "password", "confirm_password"]
 
-        fields = ("__all__")
+        fields = ["name", "last_name", "email", "password", "confirm_password"  ]
 
-        # error_messages = {
-        #     "email":{
-        #         "required": "O e-mail é obrigatório para realizar o registro!",
-        #         "invalid": "Por favor, insira um e-mail válido!",
-        #     },
-        #     "nome":{
-        #         "required": "O nome é obrigatório para realizar o registro!",
-        #         "invalid": "Por favor, insira um nome válido!",
-        #     },
+        error_messages = {
+            "name":{
+                "required": "O nome é obrigatório para realizar o registro!",
+                "invalid": "Por favor, insira um nome válido!",
+            },
 
-        #     "sobrenome":{
-        #         "required": "O sobrenome é obrigatório para realizar o registro!",
-        #         "invalid": "Por favor, insira um sobrenome válido!",
-        #     },
-            
-        #     "celular":{
-        #         "required": "O celular é obrigatório para realizar o registro!",
-        #         "invalid": "Por favor, insira um celular válido!",
-        #     },
-            
-        #     "password":{
-        #         "required": "A senha é obrigatória para realizar o registro!",
-        #         "invalid": "Por favor, insira uma senha válida!",
-        #     },
-            
-        #     "data_nascimento":{
-        #         "invalid": "Por favor, insira um formato válido de data de nascimento (DD/MM/AAAA)!",
-        #     },
-        # }
+            "last_name":{
+                "required": "O sobrenome é obrigatório para realizar o registro!",
+                "invalid": "Por favor, insira um sobrenome válido!",
+            },
+            "email":{
+                "required": "O e-mail é obrigatório para realizar o registro!",
+                "invalid": "Por favor, insira um e-mail válido!",
+            },
+            "password":{
+                "required": "A senha é obrigatória para realizar o registro!",
+                "invalid": "Por favor, insira uma senha válida!",
+            },
+        }
+
+class ProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = Usuario
+        fields = ["name", "last_name", "email", "description" ]
+
+        error_messages = {
+            "name":{
+                "required": "O nome é obrigatório para realizar o registro!",
+                "invalid": "Por favor, insira um nome válido!",
+            },
+            "last_name":{
+                "required": "O sobrenome é obrigatório para realizar o registro!",
+                "invalid": "Por favor, insira um sobrenome válido!",
+            },
+            "email":{
+                "required": "O e-mail é obrigatório para realizar o registro!",
+                "invalid": "Por favor, insira um e-mail válido!",
+            },
+            "cell_phone":{
+                "required": "O celular é obrigatório para realizar o registro!",
+                "invalid": "Por favor, insira um celular válido!",
+            },
+        }

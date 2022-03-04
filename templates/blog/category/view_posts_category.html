@@ -20,7 +20,7 @@
             <div class="col-12 col-sm-6">
                 {% if user.is_authenticated %}
                     <div class="d-flex justify-content-end">
-                        <a class="btn btn-primary" href="{% url 'register_post' category.slug %}">Registrar Postagens</a>
+                        <a class="btn btn-primary" href="{% url 'register_post' category.slug %}">Registrar Postagem</a>
                     </div>  
                 {% endif %}
             </div> 
@@ -30,11 +30,11 @@
     {% if page_posts %}
         <div class="p-3">   
             {% for post in page_posts %}
-                <article class="blog-post p-3 border">
+                <article class="blog-post">
                     <h2 class="blog-post-title">{{post.title}}</h2>
-                    <p class="blog-post-meta">{{post.time_registered|date:"d M, Y"}} by <a href="#">{{post.author.get_short_name}}</a></p>
+                    <p class="blog-post-meta">{{post.time_registered|date:"d M, Y"}} by <a href="{% url 'description_user' post.author.slug %}">{{post.author.get_short_name}}</a></p>
                     <p>{{post.description}}</p>
-                    <a href="#" class="h6 mt-2">Leia Mais</a>
+                    <a href="{% url 'detail_post' post.slug %}" class="h6 mt-2">Leia Mais</a>
                 </article>
             {% endfor %}
         </div>

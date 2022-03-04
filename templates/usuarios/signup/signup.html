@@ -5,46 +5,37 @@
 {% load bootstrap %}
 
 {% block title %}
-    Registrar Usuário | Farm Manager
+    Registrar Usuário
 {% endblock %}
 
 {% block content %}
-    <img src="{% static 'img/sign-up.svg' %}" class="col-lg-6 d-none d-lg-block bg-primary h-100 figure-img img-fluid rounded" alt="reset-password">
-    <div class="col-12 col-lg-6 p-0">
-        <div class="p-5">
+    <div class="row d-flex justify-content-center align-items-center min-vh-100">
+        <form class="row d-flex justify-content-center" method="POST">
             <div class="text-center pt-3">
                 <h1 class="h4 text-gray-800">Criar uma conta!</h1>
-                <hr>
             </div>
-            <form class="row" method="POST">
-                {% csrf_token %}
-                <div class="col-12 col-sm-6">{{form.nome|bootstrap}}</div>
-                <div class="col-12 col-sm-6">{{form.sobrenome|bootstrap}}</div>
-                <div class="col-12">{{form.email|bootstrap}}</div>
-                <div class="col-12">{{form.data_nascimento|bootstrap}}</div>
-                <div class="col-12">{{form.celular|bootstrap}}</div>
-                <div class="col-12 col-sm-6">{{form.password|bootstrap}}</div>
-                <div class="col-12 col-sm-6">{{form.confirm_password|bootstrap}}</div>
-                <div class="col-12">
-                    <div class="form-group">
-                        <div class="custom-control custom-switch">
-                            <input type="checkbox" class="custom-control-input" id="check_register">
-                            <label class="custom-control-label" for="check_register">Mostrar Senha</label>
-                        </div>
-                    </div>
-                    <button id="btn_signup" class="btn bt-primary btn-block">
+            {% csrf_token %}
+            <div class="col-12 col-sm-6">
+                <hr>
+                {{form|bootstrap}}
+
+                <div class="form-check form-switch pt-2">
+                    <input class="form-check-input" type="checkbox" id="check_register">
+                    <label class="form-check-label" for="check_register">Mostrar Senha</label>
+                </div>
+
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary">
                         Registrar
                     </button>
                 </div>
-            </form>
-            <hr>
-            <div class="text-center">
-                <a class="small" href="{% url 'reset_password' %}">Esqueceu a senha?</a>
+
+                <div class="text-center pt-3">
+                    <a class="small" href="{% url 'reset_password' %}">Esqueceu a senha?</a><br />
+                    <a class="small" href="/">Já está registrado no sistema? Login!</a>
+                </div>
             </div>
-            <div class="text-center">
-                <a class="small" href="/">Já está registrado no sistema? Login!</a>
-            </div>
-        </div>
+        </form>        
     </div>
 {% endblock %}
 
@@ -56,18 +47,6 @@
     <script>
         /* Inicialização do datepicker */
         $(document).ready(function(){
-            $('#id_data_nascimento').bootstrapMaterialDatePicker({
-                time: false,
-				clearButton: true,
-				lang: "pt-br",
-                cancelText: "Cancelar",
-                okText: "Confirmar",
-                clearText: "Limpar",
-                maxDate : new Date() 
-            });
-
-            $("#id_celular").mask("(00) 0 0000-0000");
-
             $(".form-control").attr("required", false)
 
             $("#id_password").attr("type", "password");

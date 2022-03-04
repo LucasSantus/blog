@@ -6,8 +6,13 @@ from .validate import *
 
 urlpatterns = [
     path('accounts/', include([
-        # PERFIL
-        path('perfil/', perfil, name="perfil"),
+        # PROFILE
+        path('profile/', profile, name="profile"),
+
+        # DESCRIPTION
+        path('<slug:slug_user>/', include([
+            path('description/', description_user, name="description_user"),
+        ])),
 
         #SIGN UP
         path('signup/', SignUpView.as_view(), name='signup'),

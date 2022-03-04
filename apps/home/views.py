@@ -14,7 +14,7 @@ def index(request):
     posts = Post.objects.select_related('category', 'author').all().order_by('-time_registered')[2:]
     new_posts = Post.objects.select_related('category', 'author').all().order_by('-time_registered')[:2]
 
-    paginator = Paginator(posts, 10)
+    paginator = Paginator(posts, 2)
 
     page_number = request.GET.get('page')
     page_posts = paginator.get_page(page_number)
