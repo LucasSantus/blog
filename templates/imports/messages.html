@@ -1,0 +1,30 @@
+{% if messages %}
+    <div aria-live="polite" aria-atomic="true" class="position-relative" data-bs-delay="3000">
+        <!-- <div class="toast-container position-fixed" style="top: 125px; right: 25px"> -->
+            <div class="toast-container position-fixed end-0 p-2" style="top: 100px;">
+            {% for message in messages %}
+                <div class="toast" >
+                    <div role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header text-{% if message.tags == 'error' %}danger{% else %}{{message.tags}}{% endif %}">
+                            <strong class="me-auto">
+                                {% if message.tags == 'success'%}
+                                    Sucesso!!!
+                                {% elif message.tags == 'info'%}
+                                    Informação!!!
+                                {% elif message.tags == 'warning'%} 
+                                    Perigo!!!
+                                {% elif message.tags == 'error'%}
+                                    Erro!!!
+                                {% endif %}
+                            </strong>
+                            <small class="text-muted">Agora</small>
+                        </div>
+                        <div class="toast-body text-{% if message.tags == 'error' %}danger{% else %}{{message.tags}}{% endif %}">
+                            {{message}}
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

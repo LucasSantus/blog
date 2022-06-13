@@ -2,152 +2,72 @@
 
 <!DOCTYPE html>
 
-<html lang="pt-br" class="dark">
-    <!-- BEGIN: HEAD -->
-
+<html lang="pt-BR">
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-        <meta name="description" content="">
-        <meta name="author" content="Lucas Eduardo de Oliveira Santos">
-
-        <!-- Let browser know website is optimized for mobile -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-
-        <!-- Import Material Icons -->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-        <!-- Custom styles for this template -->
-        <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
-
-        <!-- BEGIN: CSS ASSETS -->
-
-        <!-- Import Css Bootstrap -->
-        <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
-
-        <!-- Import Css Template -->
-        <link href="{% static 'css/template/blog.css' %}" rel="stylesheet">
-
-        <!-- Import Css Styles -->
-        <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-
-        <!-- Import Css Index -->
-        <link href="{% static 'css/index.css' %}" rel="stylesheet">
+        {% include 'imports/meta.html' %}
 
         {% block css %}
         {% endblock %}
-        <!-- END: CSS ASSETS -->
-
-        <!-- BEGIN: TITLE -->
-        <title>
-            {% block title %}
-                BLOG
-            {% endblock %}
-        </title>
-        <!-- END: TITLE -->
     </head>
-    <!-- END: HEAD -->
 
     <body>
-        <div class="container">
-            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-                <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                    <span class="blog-header-logo opacity-hover">Blog</span>
-                </a>
+        <header class="p-3 bg-dark text-white">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center text-white text-decoration-none">
+                        <h4 class="fs-3 opacity-hover">Posts</h4>
+                    </a>
 
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a class="nav-link px-2 link-dark opacity-hover" href="/" >Home</a></li>
-                    {% if request.user.is_authenticated %}
-                        <li><a class="nav-link px-2 link-dark opacity-hover" href="{% url 'profile' %}">Perfil</a></li>
-                    {% endif %}
-                    
-                </ul>
+                    <ul class="nav nav-pills col-12 col-lg-auto p-3 p-lg-0 ms-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="#" class="nav-link px-2 text-{% if request.path == '/' %}secondary{% else %}white{% endif %}">Home</a></li>
+                        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+                    </ul>
 
-                <div class="col-md-3 text-end">
-                    {% if request.user.is_authenticated %}
-                        <a class="btn btn-primary" href="{% url 'logout' %}">Logout</a>
-                    {% else %}
-                        <a class="btn btn-outline-primary me-2" href="{% url 'login' %}">Login</a>
-                        <a class="btn btn-primary" href="{% url 'signup' %}">Sign-up</a>
-                    {% endif %}
-                </div>
-            </header>
-        </div>
-
-        <main class="container">
-            <!-- BEGIN: BREADCRUMB -->
-            {% block breadcrumb %}
-            {% endblock %}
-            <!-- END: BREADCRUMB -->
-
-            <!-- BEGIN: CONTENT -->
-                {% block content %}
-                {% endblock %}
-            <!-- END: CONTENT -->
-
-            <div id="montagem">
-            </div>
-        </main>    
-
-        <footer class="bg-light text-center p-4 mt-4">
-            <span class="fs-7 w-100 text-muted">&copy; Copyright 2021 {% if year %}{% ifequal year 2021 %}{% else %}- {{year}} {% endifequal %}{% endif %}| Blog, Todos os direitos reservados.</span>
-        </footer>
-        <!-- BEGIN: JS ASSETS -->
-
-        <!-- Import Js Jquery -->
-        <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
-
-        <!-- Import Js Bootstrap -->
-        <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
-
-        <!-- Import Js Bootstrap Bundle -->
-        <script src="{% static 'js/bootstrap/bundle/bootstrap.bundle.min.js' %}"></script>
-
-        <!-- Import Js Index -->
-        <script src="{% static 'js/functions/function.js' %}"></script>
-
-        <!-- Import Js Index -->
-        <script src="{% static 'js/index.js' %}"></script>
-
-        <!-- END: JS ASSETS -->
-
-        <script>
-            $(document).ready(function(){
-                $(".toast").toast('show');
-            });
-        </script>
-
-        <!-- BEGIN: MESSAGES -->
-
-        {% if messages %}
-            {% for message in messages %}
-                <div class="position-fixed bottom-0 top-2 right-5 p-3" style="z-index: 5; right: 0; bottom: 0; top:0; margin-top: 60px;">
-                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="3000">
-                        <div class="toast-header bg-light">
-                            <strong class="me-auto text-{{message.tags}}">
-                                {% if message.tags == 'success'%}
-                                    Opa, Sucesso...
-                                {% elif message.tags == 'info'%}
-                                    Informações para você...
-                                {% elif message.tags == 'warning'%} 
-                                    Ops! Falhas a vista....
-                                {% elif message.tags == 'error'%}
-                                    Eita! Ocorreu algum erro....
-                                {% endif %}</strong>
-                            <small class="text-muted">Agora</small>
-                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                        </div>
-                        <div class="toast-body text-{{message.tags}} bg-light">
-                            {{message}}
-                        </div>
+                    <div class="text-end">
+                        {% if request.user.is_authenticated %}
+                            <a href="{% url 'logout' %}" class="btn btn__blueviolet opacity-hover">Sair</a>
+                        {% else %}
+                            <a href="{% url 'signup' %}" class="btn btn__nav opacity-hover">Sign UP</a>
+                            <a href="{% url 'login' %}" class="btn btn__blueviolet opacity-hover">Sign IN</a>
+                        {% endif %}
+                        
                     </div>
                 </div>
-            {% endfor %}    
-        {% endif %}
+            </div>
+        </header>
 
-        <!-- END: MESSAGES -->
+        <main>
+            {% block content %}
+            {% endblock %}
+            
+            {% include 'imports/toast.html' %}
+        </main>
+
+        <footer class="footer bg-dark p-3">
+            <div class="container text-center text-md-start">
+                <span class="fs-6 text-muted">
+                    &copy; Copyright 2021 Django Posts | Todos os direitos reservados
+                </span>
+            </div>
+        </footer>
+
+        <!-- import JQuery JS -->
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+
+        <!-- Import Bootstrap Bundle -->
+        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+        <!-- Import HoldON JS -->
+        <script src="{% static 'js/hold.on.min.js' %}"></script>
+
+        <!-- Import Function JS -->
+        <script src="{% static 'js/function.js' %}"></script>
 
         {% block script %}
         {% endblock %}
+
+        {% include 'imports/hold.on.html' %}
+
+        {% include 'imports/messages.html' %}
     </body>
 </html>

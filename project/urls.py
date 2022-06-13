@@ -12,8 +12,8 @@ urlpatterns = [
     
     # INCLUDE APPS
     path('', include('home.urls')),
-    path('', include('blog.urls')), 
-    path('', include('usuarios.urls')), 
+    path('', include('posts.urls')), 
+    path('', include('users.urls')), 
 ]
 
 # INCLUDE STATIC

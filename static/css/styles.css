@@ -1,11 +1,53 @@
-.btn-rounded-icon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    height: 30px;
+/* Seletor Bootstrap */
+.selector-for-some-widget {
+    box-sizing: content-box;
 }
 
-.btn-rounded-icon:hover{
-    opacity: .6;
+/* Footer */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+/* Buttons */
+
+.btn__nav,
+.btn__nav:hover{
+    background-color: #212529;
+    color: blueviolet;
+    border: 1px solid blueviolet;
+    cursor: pointer;
+}
+
+.btn__blueviolet,
+.btn__blueviolet:hover{
+    background-color: blueviolet;
+    color: white;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.btn__nav:focus,
+.btn__blueviolet:focus{
+    background-color: rgb(126, 33, 212);
+    color: white;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.opacity-hover:hover{
+    opacity: .6 !important;
+}
+
+.help-block{
+    color: red;
+}
+
+.text-blueviolet{
+    color: blueviolet !important;
 }

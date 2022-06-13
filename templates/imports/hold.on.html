@@ -1,0 +1,16 @@
+<script>
+    $(document).ready(function(){
+        $(window).bind('beforeunload', function() {
+            var options = {
+                theme: "sk-falding-circle",
+                message: 'Por favor, Aguarde...',
+                backgroundColor: "bg-dark",
+                textColor: "white"
+            };
+            HoldOn.open(options);
+        });
+        $(window).on('load', function() {
+            HoldOn.close();
+        })
+    });
+</script>
