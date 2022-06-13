@@ -25,7 +25,7 @@ def register_post(request):
 
 @login_required
 def change_post(request, slug_post):
-    post = Post.objects.select_related('author', 'category').get(slug = slug_post)
+    post = Post.objects.select_related('author').get(slug = slug_post)
     form = PostForm(instance = post)
     if request.method == "POST":
         form = PostForm(request.POST, instance = post)
@@ -45,7 +45,7 @@ def change_post(request, slug_post):
 
 @login_required
 def detail_post(request, slug_post):
-    post = Post.objects.select_related('author', 'category').get(slug = slug_post)
+    post = Post.objects.select_related('author').get(slug = slug_post)
     
     context = {
         "post": post,

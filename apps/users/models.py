@@ -64,13 +64,11 @@ class User(AbstractBaseUser, PermissionsMixin, Base):
 
     def get_short_name(self):
         name_split = self.name.split()
-        return str(name_split[0] + " " + name_split[len(name_split)-1])
+        last_name_split = self.last_name.split()
+        return str(name_split[0] + " " + last_name_split[len(last_name_split)-1])
 
     def get_full_name(self):
-        return str(self.name)
-
-    # def get_profile_url(self):
-    #     return reverse('profile', )
+        return str(self.name + self.last_name)
 
     def get_absolute_url(self):
         return reverse('index')

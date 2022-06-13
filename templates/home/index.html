@@ -7,7 +7,6 @@
 {% endblock %}
 
 {% block content %}
-
     <div class="container">
         <div class="d-flex justify-content-between my-3">
             <h3 class="fs-3 fw-lighter">
@@ -21,41 +20,34 @@
             {% endif %}
         </div>
 
-
-        {{posts}}
         {% if page_posts %}
-            <div class="p-3">
-                {% for post in page_posts %}
-
-
-                    <!-- <article class="blog-post">
-                        <h2 class="blog-post-title">{{post.title}}</h2>
-                        <p class="blog-post-meta">{{post.time_registered|date:"d M, Y"}} by <a href="#">{{post.author.get_short_name}}</a></p>
-                        <p>{{post.description}}</p>
-                        <a href="#" class="h6 mt-2">Leia Mais</a>
-                    </article> -->
-                {% endfor %}
-            </div>
-
-            <nav class="blog-pagination d-flex justify-content-end" aria-label="Pagination">
+            {% for post in page_posts %}
+                <article class="border rounded-3 p-3 my-3">
+                    <a href="{% url 'detail_post' post.slug %}" class="text-decoration-none text-blueviolet opacity-hover"><h2>{{post.title}}</h2></a>
+                    <span class="text-muted">{{post.create_at|date:"d M, Y"}} by <a href="#">{{post.author.get_short_name}}</a></span>
+                    <p>{{post.resume}}</p>
+                </article>
+            {% endfor %}
+        
+            <nav class="d-flex justify-content-end mb-3" aria-label="Pagination">
                 <span class="d-flex align-items-center m-1">
                     Página {{ page_posts.number }} de {{ page_posts.paginator.num_pages }}
                 </span>
 
                 {% if page_posts.has_previous %}
-                    <a class="btn btn-outline-primary m-1" href="?page={{ page_posts.previous_page_number }}">Anterior</a>
+                    <a class="btn btn__blueviolet opacity-hover m-1" href="?page={{ page_posts.previous_page_number }}">Anterior</a>
                 {% else %}
                     <a class="btn btn-outline-secondary m-1 disabled">Anterior</a>
                 {% endif %}
 
                 {% if page_posts.has_next %}
-                    <a class="btn btn-outline-primary m-1" href="?page={{ page_posts.next_page_number }}">Próxima</a>
+                    <a class="btn btn__blueviolet opacity-hover m-1" href="?page={{ page_posts.next_page_number }}">Próxima</a>
                 {% else %}
                     <a class="btn btn-outline-secondary m-1 disabled">Próxima</a>
                 {% endif %}
             </nav>
         {% else %}
-            <div class="mt-5 text-center">
+            <div class="d-flex justify-content-center align-items-center">
                 <span class="text-muted">
                     Atualmente não há postagens disponiveis!
                 </span>

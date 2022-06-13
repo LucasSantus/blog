@@ -2,62 +2,46 @@
 
 {% load static %}
 
-{% block title %}
-    Detalhes | {{post.title}}
-{% endblock %}
-
-{% block breadcrumb %}
+{% block content %}
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item opacity-hover"><a href="{% url 'view_posts_category' post.category.slug %}">{{post.category.title}}</a></li>
+        <ol class="breadcrumb container mt-2">
+            <li class="breadcrumb-item opacity-hover"><a href="">{{post.title}}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{post.title}}</li>
         </ol>
     </nav>
-{% endblock %}
 
-{% block content %}
-    <div class="row">
-        <div class="col-12 col-sm-6">
-            <span class="h3 text-gray-800">{{post.title}}</span><br />
-            <span class="h6 text-muted">{{post.subtitle}}</span>
-        </div>
-        <div class="col-12 col-sm-6">
-            {% ifequal user post.author %}
-                <div class="d-flex justify-content-end">
-                    <div class="row">
-                        <div class="col-6">
-                            <a href="{% url 'change_post' post.slug %}">
-                                <span class="material-icons text-success opacity-hover" style="font-size: 20px;">edit</span>
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a href="{% url 'delete_post' post.slug %}">
-                                <span class="material-icons text-danger opacity-hover" style="font-size: 20px;">delete</span>
-                            </a>
-                        </div>
+    <div class="container border p-3">
+        <div class="d-flex justify-content-between">
+            <span class="h3 text-gray-800">{{post.title}}</span>
+
+            {% ifequal request.user post.author %}
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <a href="{% url 'change_post' post.slug %}" class="m-1">
+                            <span class="material-icons-outlined text-success opacity-hover" style="font-size: 20px;">edit</span>
+                        </a>
                     </div>
-                </div>  
+                    <div>
+                        <a href="{% url 'delete_post' post.slug %}" class="m-1">
+                            <span class="material-icons-outlined text-danger opacity-hover" style="font-size: 20px;">delete</span>
+                        </a>
+                    </div>
+                </div>
             {% endifequal %}
         </div>
-    </div>
+
+        <span class="h6 text-muted">{{post.subtitle}}</span>
+        <p class="mt-3">
+            {{post.description}}
+        </p>
     
-    <p class="mt-5">
-        {{post.description}}
-    </p>
-
-    <div class="d-flex justify-content-end w-100">
-        <div class="row">
-            <div class="col-12 d-flex justify-content-end">
-                <span>
-                    {{post.time_registered}}
-                </span>
-            </div>
-            <div class="col-12 d-flex justify-content-end">
-                <span>
-                    <a href="{% url 'description_user' post.author.slug %}" class="opacity-hover">{{post.author.get_short_name}}</a>
-                </span>
-            </div>
+        <div class="d-flex justify-content-end w-100">
+            <span>
+                {{post.create_at}}
+            </span>
+            <span>
+                <a href="" class="opacity-hover">{{post.author.get_short_name}}</a>
+            </span>
         </div>
-
     </div>
 {% endblock %}
