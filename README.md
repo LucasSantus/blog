@@ -108,13 +108,11 @@ pip install -r requirements.txt
 
 python manage.py makemigrations home
 
+python manage.py makemigrations users
+
 python manage.py makemigrations blog
 
-python manage.py makemigrations usuarios
-
 python manage.py migrate
-
-python manage.py collectstatic
 
 python manage.py runserver
 ```
@@ -140,13 +138,11 @@ pip install -r requirements.txt
 
 python manage.py makemigrations home
 
+python manage.py makemigrations users
+
 python manage.py makemigrations blog
 
-python manage.py makemigrations usuarios
-
 python manage.py migrate
-
-python manage.py collectstatic
 
 python manage.py runserver
 ```
