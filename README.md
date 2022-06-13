@@ -1,4 +1,4 @@
-<h1 align="center">Blog</h1>
+<h1 align="center">Posts</h1>
 
 <!-- <h6 align="center"> 
 	Se você quiser visualizar as imagens do aplicativo, clique <a href="github/images/README.md">aqui</a>.
@@ -82,7 +82,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 <h4 id="clonando">Clonando o Repositório</h4>
 
 ```
-git clone git@github.com:LucasSantus/django-blog.git
+git clone git@github.com:LucasSantus/django-posts.git
 
 cd django-blog
 ```
@@ -110,7 +110,7 @@ python manage.py makemigrations home
 
 python manage.py makemigrations users
 
-python manage.py makemigrations blog
+python manage.py makemigrations posts
 
 python manage.py migrate
 
@@ -140,7 +140,7 @@ python manage.py makemigrations home
 
 python manage.py makemigrations users
 
-python manage.py makemigrations blog
+python manage.py makemigrations posts
 
 python manage.py migrate
 
@@ -195,5 +195,5 @@ Obrigado por visitar e boa codificação!<br />
 
 <h3 id="license">:memo: License</h3>
 
-Este projeto está licenciado sob a Licença MIT License - veja o [LICENSE.md](https://github.com/LucasSantus/django-blog/blob/master/LICENSE) para melhores detalhes.
+Este projeto está licenciado sob a Licença MIT License - veja o [LICENSE.md](https://github.com/LucasSantus/django-posts/blob/master/LICENSE) para melhores detalhes.
 
