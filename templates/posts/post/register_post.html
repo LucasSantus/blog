@@ -10,15 +10,12 @@
             {{action}} Post
         </h3>
         <div class="d-flex justify-content-center">
-            
-            <div class="col-12 col-sm-6 ">
-                <form method="POST" >
+            <div class="col-12 col-sm-6">
+                <form method="POST">
                     {% csrf_token %}
-                    
                     {% bootstrap_form form %}
-
                     <a class="btn btn-secondary mt-2" href="/">Cancelar</a>
-                    <button class="btn btn-primary mt-2">
+                    <button class="btn btn__custom__primary mt-2">
                         {{action}}
                     </button>
                 </form>

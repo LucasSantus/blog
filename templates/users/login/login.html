@@ -1,48 +1,32 @@
-{% extends 'users/base.html' %}
+{% extends 'base.html' %}
 
 {% load bootstrap5 %}
 
-{% block title %}
-    Login
-{% endblock %}
-
 {% block content %}
-    <!-- BEGIN: SECTION LOGIN -->
-        <section class="
-            row min-vh-100 
-            d-block pt-3 text-center
-            d-sm-flex pt-sm-0 justify-content-sm-center align-items-sm-center text-sm-start
-        ">
+    <div class="container">
+        <section class="row min-vh-100 d-block pt-3 text-center d-sm-flex pt-sm-0 justify-content-sm-center align-items-sm-center text-sm-start">
             <div class="col-12 col-sm-8 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
                 <div class="card rounded-3">
                     <div class="card-body px-xl-4">
-                        <h4 class="text-grey font-public-sans fs-5 text-center">Bem vindo ao revenues! 👋</h4>
-                        <p class="text-muted font-public-sans" style="font-size: 0.9375rem;">Faça login com sua conta e aproveite sua aventura no mundo gastronomico.</p>
-
+                        <h4 class="text-grey font-public-sans fs-5 text-center">Bem vindo! 👋</h4>
+                        <p class="text-muted font-public-sans font__subtitle">Faça login com sua conta.</p>
                         <form method="POST">
                             {% csrf_token %}
-
                             {% bootstrap_form form %}
-
-                            <div class="
-                                d-grid justify-content-start pt-2
-                                d-sm-flex justify-content-sm-between
-                            ">
+                            <div class="d-grid justify-content-start pt-2 d-sm-flex justify-content-sm-between">
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" id="check_login">
                                     <label class="form-check-label text-muted" for="check_login">Mostrar Senha</label>
                                 </div>
-                                <a href="{% url 'reset_password' %}" class="text-decoration-none text-blueviolet opacity-hover">
+                                <a href="{% url 'reset_password' %}" class="text-decoration-none text__custom__primary opacity__hover">
                                     Esqueceu a senha?
                                 </a>
                             </div>
-                            <button class="btn btn__blueviolet d-grid w-100 rounded-3 mt-1 mb-2" type="submit">Logar</button>
+                            <button class="btn btn__custom__primary d-grid w-100 rounded-3 mt-1 mb-2" type="submit">Logar</button>
                         </form>
-
                         <p class="text-center">
-                            <span class="text-muted font-public-sans" style="font-size: 0.9375rem;">Novo na plataforma?</span>
-
-                            <a href="{% url 'signup' %}" class="text-decoration-none text-blueviolet opacity-hover">
+                            <span class="text-muted font-public-sans font__platform">Novo na plataforma?</span>
+                            <a href="{% url 'signup' %}" class="text-decoration-none text__custom__primary opacity__hover">
                                 <span>Criar uma conta</span>
                             </a>
                         </p>
@@ -50,7 +34,16 @@
                 </div>
             </div>
         </section>
-    <!-- END: SECTION LOGIN -->
+    </div>
+{% endblock %}
+
+{% block css %}
+    <style>
+        .font__platform,
+        .font__subtitle{
+            font-size: 0.9375rem;
+        }
+    </style>
 {% endblock %}
 
 {% block script %}

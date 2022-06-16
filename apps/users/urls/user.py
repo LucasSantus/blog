@@ -4,10 +4,10 @@ from users.views import *
 from users.validate import *
 
 urlpatterns = [
+    # PROFILE
+    path('profile/', profile, name="profile"),
+    
     path('accounts/', include([
-        # PROFILE
-        path('profile/', profile, name="profile"),
-
         #SIGN UP
         path('signup/', signup.as_view(), name='signup'),
 
@@ -16,7 +16,7 @@ urlpatterns = [
 
         #LOGOUT
         path("logout/", auth_views.LogoutView.as_view(template_name="users/logout/logout.html"), name="logout"),
-        
+
         #RESET PASSWORD
         path('password/reset/', include([
             path('sent/', auth_views.PasswordResetDoneView.as_view(template_name="users/reset_password/reset-password-done.html"), name="password_reset_done"),

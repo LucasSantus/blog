@@ -44,8 +44,8 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser, PermissionsMixin, Base):
-    name = models.CharField(verbose_name = "Nome", max_length = 60)
-    last_name = models.CharField(verbose_name = "Sobrenome", max_length = 150)
+    name = models.CharField(verbose_name = "Nome", max_length = 60, unique = True)
+    last_name = models.CharField(verbose_name = "Sobrenome", max_length = 150, unique = True)
     description = models.TextField(verbose_name = "Descrição", null = True, blank = True)
     email = models.EmailField(verbose_name = "E-mail", max_length = 194, unique = True) 
     is_staff = models.BooleanField(verbose_name = "Usuário desenvolvedor", default = False)
@@ -68,7 +68,7 @@ class User(AbstractBaseUser, PermissionsMixin, Base):
         return str(name_split[0] + " " + last_name_split[len(last_name_split)-1])
 
     def get_full_name(self):
-        return str(self.name + self.last_name)
+        return str(self.name + " " + self.last_name)
 
     def get_absolute_url(self):
         return reverse('index')

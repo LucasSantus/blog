@@ -4,37 +4,49 @@
 
 <html lang="pt-BR">
     <head>
-        {% include 'imports/meta.html' %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="WebSite de Posts" />
+        <meta name="author" content="Lucas Eduardo de Oliveira Santos" />
+
+        <!-- <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}"> -->
+
+        <!-- Import Bootstrap CSS -->
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+        <!-- Import Material Icons Outlined CSS -->
+        <link rel="stylesheet" href="{% static 'css/material-icons/outlined/material-icons-outlined.min.css' %}">
+
+        <!-- Import Styles CSS -->
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+        <title>Django Posts</title>
 
         {% block css %}
         {% endblock %}
     </head>
 
     <body>
-        <header class="p-3 bg-dark text-white">
+        {% if not "accounts" in request.path %}
             <div class="container">
-                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                    <a href="/" class="d-flex align-items-center text-white text-decoration-none">
-                        <h4 class="fs-3 opacity-hover">Posts</h4>
+                <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                        <h4 class="fs-3 opacity__hover">Posts</h4>
                     </a>
-
-                    <ul class="nav nav-pills col-12 col-lg-auto p-3 p-lg-0 ms-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="#" class="nav-link px-2 text-{% if request.path == '/' %}secondary{% else %}white{% endif %}">Home</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-                    </ul>
-
-                    <div class="text-end">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item"><a href="/" class="nav-link opacity__hover">Home</a></li>
+                        <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link opacity__hover">Profile</a></li>
                         {% if request.user.is_authenticated %}
-                            <a href="{% url 'logout' %}" class="btn btn__blueviolet opacity-hover">Sair</a>
-                        {% else %}
-                            <a href="{% url 'signup' %}" class="btn btn__nav opacity-hover">Sign UP</a>
-                            <a href="{% url 'login' %}" class="btn btn__blueviolet opacity-hover">Sign IN</a>
+                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link opacity__hover">Logout</a></li>
+ 
+                            <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link opacity__hover">Sign UP</a></li>
+                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link opacity__hover">Sign IN</a></li>
                         {% endif %}
-                        
-                    </div>
-                </div>
+                    </ul>
+                </header>
             </div>
-        </header>
+        {% endif %}
 
         <main>
             {% block breadcrumb %}
@@ -43,34 +55,74 @@
             {% block content %}
             {% endblock %}
             
-            {% include 'imports/toast.html' %}
+            <div aria-live="polite" aria-atomic="true" class="position-relative" data-bs-delay="3000">
+                <div class="toast-container position-fixed top-0 end-0 p-2">
+                    <div id="assembly"></div>
+                </div>
+            </div>
         </main>
 
-        <footer class="footer bg-dark p-3">
-            <div class="container text-center text-md-start">
-                <span class="fs-6 text-muted">
-                    &copy; Copyright 2021 Django Posts | Todos os direitos reservados
-                </span>
-            </div>
-        </footer>
+        {% if request.user.is_authenticated %}
+            <footer class="footer bg-dark p-3">
+                <div class="container text-center text-md-start">
+                    <span class="fs-6 text-muted">
+                        &copy; Copyright 2021 Django Posts | Todos os direitos reservados
+                    </span>
+                </div>
+            </footer>
+        {% endif %}
 
         <!-- import JQuery JS -->
         <script src="{% static 'js/jquery.min.js' %}"></script>
+        
+        {% if request.user.is_authenticated %}
+            <!-- Import Bootstrap Bundle -->
+            <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
-        <!-- Import Bootstrap Bundle -->
-        <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+            <script>
+                $(document).ready(function(){
+                    $(".toast").toast("show")
+                });
+            </script>
+        {% endif %}
 
-        <!-- Import HoldON JS -->
-        <script src="{% static 'js/hold.on.min.js' %}"></script>
-
-        <!-- Import Function JS -->
-        <script src="{% static 'js/function.js' %}"></script>
+        {% if not request.user.is_authenticated %}
+            <!-- Import Function JS -->
+            <script src="{% static 'js/function.js' %}"></script>
+        {% endif %}
 
         {% block script %}
         {% endblock %}
 
-        {% include 'imports/hold.on.html' %}
+        {% if messages %}
+            <div aria-live="polite" aria-atomic="true" class="position-relative">
+                <div class="toast-container position-fixed top-0 end-0 p-4">
+                    {% for message in messages %}
+                        <div class="toast fade" aria-live="polite" aria-atomic="true" data-bs-delay="3000">
+                            <div role="alert" aria-live="assertive" aria-atomic="true" >
+                                <div class="toast-header text-{% if message.tags == 'error' %}danger{% else %}{{message.tags}}{% endif %}">
+                                    <strong class="me-auto">
+                                        {% if message.tags == 'success'%}
+                                            Sucesso!!!
+                                        {% elif message.tags == 'info'%}
+                                            Informação!!!
+                                        {% elif message.tags == 'warning'%} 
+                                            Perigo!!!
+                                        {% elif message.tags == 'error'%}
+                                            Erro!!!
+                                        {% endif %}
+                                    </strong>
+                                    <small class="text-muted">Agora</small>
+                                </div>
+                                <div class="toast-body text-{% if message.tags == 'error' %}danger{% else %}{{message.tags}}{% endif %}">
+                                    {{message}}
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
 
-        {% include 'imports/messages.html' %}
     </body>
 </html>

@@ -11,12 +11,16 @@ class Base(models.Model):
     class Meta:
         abstract = True
 
-    def get_generated_text_slug():
-        return ''.join(random.choice(letters) for i in range(6))
-
 class BaseAttributes(Base):
     title = models.CharField(verbose_name = "Título", max_length = 300, unique = True)
-    slug = AutoSlugField(populate_from = 'title', unique_with = ['title'], unique = True, editable = True)
+    slug = AutoSlugField(populate_from = 'get_title_slug', unique_with = ['title'], unique = True, editable = True)
 
     class Meta:
         abstract = True
+
+    def get_generated_text_slug(self):
+        letters = string.ascii_lowercase
+        return ''.join(random.choice(letters) for i in range(4))
+
+    def get_title_slug(self):
+        return f"{self.title}-{self.get_generated_text_slug()}"

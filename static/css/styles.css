@@ -24,8 +24,8 @@ main {
     cursor: pointer;
 }
 
-.btn__blueviolet,
-.btn__blueviolet:hover{
+.btn__custom__primary,
+.btn__custom__primary:hover{
     background-color: blueviolet;
     color: white;
     border: 1px solid transparent;
@@ -33,14 +33,14 @@ main {
 }
 
 .btn__nav:focus,
-.btn__blueviolet:focus{
+.btn__custom__primary:focus{
     background-color: rgb(126, 33, 212);
     color: white;
     border: 1px solid transparent;
     cursor: pointer;
 }
 
-.opacity-hover:hover{
+.opacity__hover:hover{
     opacity: .6 !important;
 }
 
@@ -48,6 +48,6 @@ main {
     color: red;
 }
 
-.text-blueviolet{
+.text__custom__primary{
     color: blueviolet !important;
 }
