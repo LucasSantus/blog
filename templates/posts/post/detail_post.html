@@ -10,35 +10,35 @@
         </ol>
     </nav>
 
-    <div class="col-10 container border p-4">
+    <div class="col-10 container border p-4 rounded-3">
         <div class="d-block justify-content-start d-sm-flex justify-content-sm-between">
-            <span class="h3 text-gray-800 pe-3">{{post.title}}</span>
+            <span class="h3 text-gray-800 pe-3 text__custom__primary">{{post.title}}</span>
             {% ifequal request.user post.author %}
                 <div class="d-flex justify-content-end py-3 d-sm-flex justify-content-sm-between p-sm-0">
                     <div>
                         <a href="{% url 'change_post' post.slug %}" class="m-1">
-                            <span class="material-icons-outlined text-success opacity__hover" style="font-size: 20px;">edit</span>
+                            <span class="material-icons text-success opacity__hover border rounded-3 p-1" style="font-size: 20px;">edit</span>
                         </a>
                     </div>
                     <div>
                         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="m-1">
-                            <span class="material-icons-outlined text-danger opacity__hover" style="font-size: 20px;">delete</span>
+                            <span class="material-icons text-danger opacity__hover border rounded-3 p-1" style="font-size: 20px;">delete</span>
                         </a>
                     </div>
                 </div>
             {% endifequal %}
         </div>
-        <span class="h6 text-muted">{{post.subtitle}}</span>
+        <span class="h6 text__custom__primary">{{post.subtitle}}</span>
         <p class="mt-3">
-            <pre style="white-space: pre-wrap;">{{post.description}}</pre>
+            <pre class="text__custom__third" style="white-space: pre-wrap;">{{post.description}}</pre>
         </p>
         <div class="d-flex justify-content-end w-100">
             <div class="row">
-                <div class="col-12 d-flex justify-content-end text-muted mt-3">
+                <div class="col-12 d-flex justify-content-end text__custom__primary mt-3">
                     {{post.create_at}}
                 </div>
-                <div class="col-12 d-flex justify-content-end">
-                    <a href="{% url 'user_posts' post.author.id %}" class="opacity__hover">{{post.author.get_short_name}}</a>
+                <div class="col-12 d-flex justify-content-end text__custom__primary">
+                    {{post.author.get_short_name}}
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
                 <div class="modal-body">
                     <p>Deseja realmente realizar essa ação, não será possível recuperar os dados perdidos, para continuar pressione [ Confirmar ]</p>
                     <div class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn-secondary opacity__hover" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn__custom__secondary opacity__hover" data-bs-dismiss="modal">Fechar</button>
                         <a href="{% url 'delete_post' post.slug %}" class="btn btn__custom__primary opacity__hover">Confirmar</a>
                     </div>
                 </div>

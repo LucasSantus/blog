@@ -141,5 +141,5 @@ EMAIL_HOST_PASSWORD = str(os.environ.get('EMAIL_HOST_PASSWORD', ""))
 EMAIL_USE_TLS = str(os.environ.get('EMAIL_USE_TLS', True))
 DEFAULT_FROM_EMAIL = 'Blog'
 
-MEDIA_URL = '/media/' 
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

@@ -4,9 +4,6 @@ from users.views import *
 from users.validate import *
 
 urlpatterns = [
-    # PROFILE
-    path('profile/', profile, name="profile"),
-    
     path('accounts/', include([
         #SIGN UP
         path('signup/', signup.as_view(), name='signup'),

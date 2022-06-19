@@ -46,7 +46,6 @@ class UserManager(BaseUserManager):
 class User(AbstractBaseUser, PermissionsMixin, Base):
     name = models.CharField(verbose_name = "Nome", max_length = 60, unique = True)
     last_name = models.CharField(verbose_name = "Sobrenome", max_length = 150, unique = True)
-    description = models.TextField(verbose_name = "Descrição", null = True, blank = True)
     email = models.EmailField(verbose_name = "E-mail", max_length = 194, unique = True) 
     is_staff = models.BooleanField(verbose_name = "Usuário desenvolvedor", default = False)
     is_superuser = models.BooleanField(verbose_name = "Super usuário", default = False)

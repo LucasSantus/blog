@@ -7,16 +7,16 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="WebSite de Posts" />
+        <meta name="description" content="Simple site on posts" />
         <meta name="author" content="Lucas Eduardo de Oliveira Santos" />
 
         <!-- <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}"> -->
 
-        <!-- Import Bootstrap CSS -->
         <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 
-        <!-- Import Material Icons Outlined CSS -->
-        <link rel="stylesheet" href="{% static 'css/material-icons/outlined/material-icons-outlined.min.css' %}">
+        {% if not "accounts" in request.path %}
+            <link rel="stylesheet" href="{% static 'css/material-icons/filled/material-icons-filled.min.css' %}">
+        {% endif %}
 
         <!-- Import Styles CSS -->
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
@@ -32,16 +32,14 @@
             <div class="container">
                 <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
                     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                        <h4 class="fs-3 opacity__hover">Posts</h4>
+                        <h4 class="fs-3 text__custom__primary opacity__hover">Posts</h4>
                     </a>
                     <ul class="nav nav-pills">
-                        <li class="nav-item"><a href="/" class="nav-link opacity__hover">Home</a></li>
-                        <li class="nav-item"><a href="{% url 'profile' %}" class="nav-link opacity__hover">Profile</a></li>
                         {% if request.user.is_authenticated %}
-                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link opacity__hover">Logout</a></li>
- 
-                            <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link opacity__hover">Sign UP</a></li>
-                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link opacity__hover">Sign IN</a></li>
+                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link opacity__hover link__custom__primary">Logout</a></li>
+                        {% else %}
+                            <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link opacity__hover link__custom__primary">Sign UP</a></li>
+                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link opacity__hover link__custom__primary">Sign IN</a></li>
                         {% endif %}
                     </ul>
                 </header>
@@ -54,7 +52,7 @@
 
             {% block content %}
             {% endblock %}
-            
+
             <div aria-live="polite" aria-atomic="true" class="position-relative" data-bs-delay="3000">
                 <div class="toast-container position-fixed top-0 end-0 p-2">
                     <div id="assembly"></div>
@@ -62,8 +60,8 @@
             </div>
         </main>
 
-        {% if request.user.is_authenticated %}
-            <footer class="footer bg-dark p-3">
+        {% if not "accounts" in request.path %}
+            <footer class="footer bg-transparent p-3">
                 <div class="container text-center text-md-start">
                     <span class="fs-6 text-muted">
                         &copy; Copyright 2021 Django Posts | Todos os direitos reservados
@@ -72,11 +70,9 @@
             </footer>
         {% endif %}
 
-        <!-- import JQuery JS -->
         <script src="{% static 'js/jquery.min.js' %}"></script>
         
-        {% if request.user.is_authenticated %}
-            <!-- Import Bootstrap Bundle -->
+        {% if not "accounts" in request.path %}
             <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 
             <script>
@@ -86,8 +82,7 @@
             </script>
         {% endif %}
 
-        {% if not request.user.is_authenticated %}
-            <!-- Import Function JS -->
+        {% if "accounts" in request.path %}
             <script src="{% static 'js/function.js' %}"></script>
         {% endif %}
 
@@ -123,6 +118,5 @@
                 </div>
             </div>
         {% endif %}
-
     </body>
 </html>

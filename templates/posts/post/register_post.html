@@ -14,8 +14,8 @@
                 <form method="POST">
                     {% csrf_token %}
                     {% bootstrap_form form %}
-                    <a class="btn btn-secondary mt-2" href="/">Cancelar</a>
-                    <button class="btn btn__custom__primary mt-2">
+                    <a class="btn btn__custom__secondary opacity__hover mt-2" href="/">Cancelar</a>
+                    <button class="btn btn__custom__primary opacity__hover mt-2">
                         {{action}}
                     </button>
                 </form>

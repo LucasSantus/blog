@@ -5,43 +5,41 @@
 {% block content %}
     <div class="container">
         <div class="d-flex justify-content-between my-3">
-            <h3 class="fs-3 fw-lighter">
+            <h3 class="fs-3 fw-lighter text__custom__secondary">
                 Postagens
             </h3>
 
             {% if request.user.is_authenticated %}
                 <div>
-                    <a href="{% url 'register_post' %}" class="btn btn__custom__primary opacity__hover">Registrar Post</a>
+                    <a href="{% url 'register_post' %}" class="btn btn__custom__primary opacity__hover">Registrar Postagem</a>
                 </div>
             {% endif %}
         </div>
 
         {% if page_posts %}
             {% for post in page_posts %}
-                <article class="border rounded-3 p-3 my-3">
+                <article class="border rounded-3 p-3 my-3 bg__custom__primary">
                     <a href="{% url 'detail_post' post.slug %}" class="text-decoration-none text__custom__primary opacity__hover"><h2>{{post.title}}</h2></a>
-                    <span class="text-muted">{{post.create_at|date:"d M, Y"}} by <a href="{% url 'user_posts' post.author.id %}">{{post.author.get_short_name}}</a></span>
-                    <p>{{post.resume}}</p>
+                    <p class="text__custom__third">{{post.resume}}</p>
+                    <span class="text__custom__third d-flex justify-content-end">{{post.create_at|date:"d M, Y"}}</span>
                 </article>
             {% endfor %}
-        
-            <nav class="d-flex justify-content-end mb-3" aria-label="Pagination">
-                <span class="d-flex align-items-center m-1">
-                    Página {{ page_posts.number }} de {{ page_posts.paginator.num_pages }}
-                </span>
+            
+            {% if page_posts.has_next %}
+                <nav class="d-flex justify-content-start mb-3" aria-label="Pagination">
+                    {% if page_posts.has_previous %}
+                        <a class="btn btn__custom__primary opacity__hover m-1" href="?page={{ page_posts.previous_page_number }}">Anterior</a>
+                    {% else %}
+                        <a class="btn btn-outline-secondary m-1 disabled" href="#">Anterior</a>
+                    {% endif %}
 
-                {% if page_posts.has_previous %}
-                    <a class="btn btn__custom__primary opacity__hover m-1" href="?page={{ page_posts.previous_page_number }}">Anterior</a>
-                {% else %}
-                    <a class="btn btn-outline-secondary m-1 disabled" href="#">Anterior</a>
-                {% endif %}
-
-                {% if page_posts.has_next %}
-                    <a class="btn btn__custom__primary opacity__hover m-1" href="?page={{ page_posts.next_page_number }}">Próxima</a>
-                {% else %}
-                    <a class="btn btn-outline-secondary m-1 disabled" href="#">Próxima</a>
-                {% endif %}
-            </nav>
+                    {% if page_posts.has_next %}
+                        <a class="btn btn__custom__primary opacity__hover m-1" href="?page={{ page_posts.next_page_number }}">Próxima</a>
+                    {% else %}
+                        <a class="btn btn-outline-secondary m-1 disabled" href="#">Próxima</a>
+                    {% endif %}
+                </nav>
+            {% endif %}
         {% else %}
             <div class="d-flex justify-content-center align-items-center">
                 <span class="text-muted">

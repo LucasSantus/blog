@@ -1,10 +1,113 @@
+/* ROOT VARIABLES */
+:root{
+    --body: #212129;
+    --primary-color: #323949;
+    --primary-color-focus: #2e364b;
+    --secondary-color: #4d4d5f;
+    --secondary-color-focus: #434453;
+    --third-color: #5e5e6e;
+    --third-color-focus: rgb(81, 85, 99);
+    --four-color: #40445A;
+    --light-color: white;
+}
+
+/* BUTTON COLORS */
+.btn__custom__primary,
+.btn__custom__primary:hover{
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    border: 1px solid var(--four-color);
+    cursor: pointer;
+}
+
+.btn__custom__primary:focus{
+    background-color: var(--primary-color-focus);
+    color: var(--light-color);
+    border: 1px solid var(--four-color);
+    cursor: pointer;
+}
+
+.btn__custom__secondary,
+.btn__custom__secondary:hover{
+    background-color: var(--secondary-color);
+    color: var(--light-color);
+    border: 1px solid var(--four-color);
+    cursor: pointer;
+}
+
+.btn__custom__secondary:focus{
+    background-color: var(--secondary-color-focus);
+    color: var(--light-color);
+    border: 1px solid var(--four-color);
+    cursor: pointer;
+}
+
+.bg__custom__secondary{
+    background-color: var(--secondary-color) !important;
+}
+
+/* TEXT COLORS */
+.text__custom__primary{
+    color: var(--primary-color) !important;
+}
+
+.text__custom__secondary{
+    color: var(--secondary-color) !important;
+}
+
+.text__custom__third{
+    color: var(--third-color) !important;
+}
+
+.link__custom__primary{
+    color: var(--primary-color) !important;
+}
+
+.link__custom__secondary{
+    color: var(--secondary-color) !important;
+}
+
+.link__custom__third{
+    color: var(--third-color) !important;
+}
+
+/* OPACITY ITEMS */
+.opacity__hover:hover{
+    opacity: .6 !important;
+}
+
+/* OTHERS */
+.help-block{
+    color: red;
+}
+
+/* TOOLBAR */
+body::-webkit-scrollbar {
+    width: 14px;        /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);   /* color of the scroll thumb */
+    border-radius: 50px;       /* roundness of the scroll thumb */
+    border: 3px solid white;  /* creates padding around scroll thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary-color-focus);
+}
+
+body::-webkit-scrollbar-button {
+    height: 60px
+}
+
 /* Seletor Bootstrap */
 .selector-for-some-widget {
     box-sizing: content-box;
 }
 
-/* Footer */
+/* FOOTER */
 body {
+    background-color: var(--body);
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -12,42 +115,4 @@ body {
 
 main {
     flex: 1 0 auto;
-}
-
-/* Buttons */
-
-.btn__nav,
-.btn__nav:hover{
-    background-color: #212529;
-    color: blueviolet;
-    border: 1px solid blueviolet;
-    cursor: pointer;
-}
-
-.btn__custom__primary,
-.btn__custom__primary:hover{
-    background-color: blueviolet;
-    color: white;
-    border: 1px solid transparent;
-    cursor: pointer;
-}
-
-.btn__nav:focus,
-.btn__custom__primary:focus{
-    background-color: rgb(126, 33, 212);
-    color: white;
-    border: 1px solid transparent;
-    cursor: pointer;
-}
-
-.opacity__hover:hover{
-    opacity: .6 !important;
-}
-
-.help-block{
-    color: red;
-}
-
-.text__custom__primary{
-    color: blueviolet !important;
 }
