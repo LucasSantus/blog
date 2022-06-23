@@ -10,7 +10,7 @@
 
 A ideia é:
 
-_"Criar um Blog onde o mesmo tenha um design simples e belo, com intuito de promover o aprendizado e gerar um projeto completo utilizando o Django framework."_
+_"Criar um Blog onde o mesmo tenha um design simples e belo, com intuito de promover o aprendizado e gerar um projeto simples utilizando o Django framework."_
 
 --------------------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ _"Criar um Blog onde o mesmo tenha um design simples e belo, com intuito de prom
 <h3 id="status">:heavy_exclamation_mark: Status do Projeto</h3>
 
 <h4 align="center"> 
-	🚧 Sistema Web em construção... 🚧
+	✔️ Sistema Web em construção... ✔️
 </h4>
 
 --------------------------------------------------------------------------------------
@@ -64,14 +64,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [X] Possibilita a criação de conta.
 - [X] Possibilita a recuperação de conta.
 
-- [X] Possibilita a criação de categorias.
-- [X] Possibilita a visualização detalhada de categorias.
-- [X] Possibilita a edição de categorias.
-- [X] Possibilita a remoção de categorias.
-
-- [X] Possibilita a criação de postagens por categoria.
-- [X] Possibilita a visualização de postagens categoria.
-- [X] Possibilita a visualização detalhada de postagens.
+- [X] Possibilita a criação de postagens.
+- [X] Possibilita a visualização de postagens.
 - [X] Possibilita a edição de postagens.
 - [X] Possibilita a remoção de postagens.
 
@@ -84,7 +78,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 ```
 git clone git@github.com:LucasSantus/django-posts.git
 
-cd django-blog
+cd django-posts
 ```
 
 <h4 id="rodando">Rodando o Projeto</h4>
@@ -164,15 +158,7 @@ http://127.0.0.1:8000/admin/
 
 --------------------------------------------------------------------------------------
 
-<h3 id="comandos">:paperclip: Comandos</h3>
-
-> **Observação:** Caso tenha surgido dúvidas sobre os códigos no processo de instalação, o link abaixo contém explicações dos comandos e scripts para "automátição" do projeto.
-
-Para melhor entendimento sobre os comandos mostrados acima, clique [aqui](COMMANDS.md).
-
---------------------------------------------------------------------------------------
-
-<h3 id="autor">:bust_in_silhouette: Autor(es)</h3>
+<h3 id="autor">:bust_in_silhouette: Autor</h3>
 
 <table>
 	<tr>
