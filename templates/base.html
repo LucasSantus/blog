@@ -30,16 +30,16 @@
     <body>
         {% if not "accounts" in request.path %}
             <div class="container">
-                <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+                <header class="d-flex flex-wrap justify-content-center pt-3 mb-4">
                     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                        <h4 class="fs-3 text__custom__primary opacity__hover">Posts</h4>
+                        <h4 class="fs-3 text-white opacity__hover">Posts</h4>
                     </a>
                     <ul class="nav nav-pills">
                         {% if request.user.is_authenticated %}
-                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link opacity__hover link__custom__primary">Logout</a></li>
+                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link opacity__hover text-white text-decoration-underline">Logout</a></li>
                         {% else %}
-                            <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link opacity__hover link__custom__primary">Sign UP</a></li>
-                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link opacity__hover link__custom__primary">Sign IN</a></li>
+                            <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link opacity__hover text-white text-decoration-underline">Sign UP</a></li>
+                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link opacity__hover text-white text-decoration-underline">Sign IN</a></li>
                         {% endif %}
                     </ul>
                 </header>
