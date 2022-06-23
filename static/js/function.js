@@ -20,5 +20,7 @@ function generate_toast(type, title, message){
         </div>
     `).appendTo("#assembly");
 
-    $(".toast").toast("show")
+    setTimeout(function () {
+        $('#assembly').empty();
+    }, 2000);
 }
