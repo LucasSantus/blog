@@ -6,7 +6,7 @@
 
 {% block content %}
     <div class="container my-3">
-        <h3 class="fs-3 fw-lighter text-center">
+        <h3 class="fs-3 fw-lighter text-center text-white">
             {{action}} Post
         </h3>
         <div class="d-flex justify-content-center">
@@ -15,11 +15,23 @@
                     {% csrf_token %}
                     {% bootstrap_form form %}
                     <a class="btn btn__custom__secondary opacity__hover mt-2" href="/">Cancelar</a>
-                    <button class="btn btn__custom__primary opacity__hover mt-2">
+                    <button class="btn btn__custom__secondary opacity__hover mt-2">
                         {{action}}
                     </button>
                 </form>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block css %}
+    <style>
+        .form-label{
+            color: white
+        }
+        .form-control{
+            background-color: transparent !important;
+            color: var(--description-color)
+        }
+    </style>
 {% endblock %}

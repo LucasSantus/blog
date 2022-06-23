@@ -4,25 +4,27 @@
 
 {% block content %}
     <div class="container">
-        <div class="d-flex justify-content-between my-3">
-            <h3 class="fs-3 fw-lighter text__custom__secondary">
+        <div class="d-flex justify-content-between">
+            <h3 class="fs-3 fw-lighter text-white">
                 Postagens
             </h3>
 
             {% if request.user.is_authenticated %}
                 <div>
-                    <a href="{% url 'register_post' %}" class="btn btn__custom__primary opacity__hover">Registrar Postagem</a>
+                    <a href="{% url 'register_post' %}" class="btn btn__custom__secondary opacity__hover">Registrar Postagem</a>
                 </div>
             {% endif %}
         </div>
 
         {% if page_posts %}
             {% for post in page_posts %}
-                <article class="border rounded-3 p-3 my-3 bg__custom__primary">
-                    <a href="{% url 'detail_post' post.slug %}" class="text-decoration-none text__custom__primary opacity__hover"><h2>{{post.title}}</h2></a>
-                    <p class="text__custom__third">{{post.resume}}</p>
-                    <span class="text__custom__third d-flex justify-content-end">{{post.create_at|date:"d M, Y"}}</span>
-                </article>
+                <a href="{% url 'detail_post' post.slug %}" class="text-decoration-none opacity__hover">
+                    <article class="border rounded-3 p-3 my-3 bg__custom__primary border-color">
+                        <h2 class="text__title">{{post.title}}</h2>
+                        <p class="text__description">{{post.resume}}</p>
+                        <span class="text__description d-flex justify-content-end">{{post.create_at|date:"d M, Y"}}</span>
+                    </article>
+                </a>
             {% endfor %}
             
             {% if page_posts.has_next %}
