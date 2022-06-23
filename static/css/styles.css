@@ -1,7 +1,8 @@
 /* ROOT VARIABLES */
 :root{
-    --body: #212129;
-    --primary-color: #323949;
+    --body: #0D1117;
+    --primary-color: #000000;
+
     --primary-color-focus: #2e364b;
     --secondary-color: #4d4d5f;
     --secondary-color-focus: #434453;
@@ -9,6 +10,10 @@
     --third-color-focus: rgb(81, 85, 99);
     --four-color: #40445A;
     --light-color: white;
+
+    --title-color: #b8b8b8;
+    --description-color: #7a7d80;
+    --border-color: #8B949E;
 }
 
 /* BUTTON COLORS */
@@ -59,16 +64,12 @@
     color: var(--third-color) !important;
 }
 
-.link__custom__primary{
-    color: var(--primary-color) !important;
+.text__title{
+    color: var(--title-color);
 }
 
-.link__custom__secondary{
-    color: var(--secondary-color) !important;
-}
-
-.link__custom__third{
-    color: var(--third-color) !important;
+.text__description{
+    color: var(--description-color);
 }
 
 /* OPACITY ITEMS */
@@ -79,6 +80,10 @@
 /* OTHERS */
 .help-block{
     color: red;
+}
+
+.border-color{
+    border: 1px solid var(--border-color) !important;
 }
 
 /* TOOLBAR */
