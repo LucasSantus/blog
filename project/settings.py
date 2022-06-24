@@ -134,12 +134,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #SMTP
 EMAIL_BACKEND = str(os.environ.get('EMAIL_BACKEND', "django.core.mail.backends.console.EmailBackend"))
-EMAIL_HOST = str(os.environ.get('EMAIL_HOST', "smtp.gmail.com"))
-EMAIL_PORT = str(os.environ.get('EMAIL_PORT', 587))
+EMAIL_HOST = "smtp.gmail.com"
+EMAIL_PORT = 587
 EMAIL_HOST_USER = str(os.environ.get('EMAIL_HOST_USER', ""))
 EMAIL_HOST_PASSWORD = str(os.environ.get('EMAIL_HOST_PASSWORD', ""))
-EMAIL_USE_TLS = str(os.environ.get('EMAIL_USE_TLS', True))
-DEFAULT_FROM_EMAIL = 'Blog'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Posts'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
