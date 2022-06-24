@@ -26,7 +26,7 @@ class SignupForm(forms.ModelForm):
     class Meta:
         model = User
 
-        fields = ["name", "email", "password", "confirm_password"  ]
+        fields = ["name", "last_name", "email", "password", "confirm_password"  ]
 
         error_messages = {
             "name":{
