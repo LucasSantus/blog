@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404
+from home.default_messages import *
 
 @login_required
 def register_post(request):
@@ -15,7 +16,7 @@ def register_post(request):
             post = form.save(commit = False)
             post.author = request.user
             post.save()
-            messages.success(request, f"Postagem registrada com sucesso!")
+            messages.success(request, DEFAULT_MESSAGES["ADD_POST"])
             return redirect('/')
     context = {
         "form": form,
@@ -33,7 +34,7 @@ def change_post(request, slug_post):
         if form.is_valid():
             post = form.save(commit = False)
             post.save()
-            messages.success(request, f"Postagem modificada com sucesso!")
+            messages.success(request, DEFAULT_MESSAGES["CHANGE_POST"])
             return redirect('detail_post', slug_post = post.slug)
 
     context = {
@@ -54,5 +55,5 @@ def detail_post(request, slug_post):
 def delete_post(request, slug_post):
     post = get_object_or_404(Post.objects.select_related('author'), slug = slug_post)
     Post.objects.get(slug = slug_post).delete()
-    messages.success(request, f"Postagem deletada com sucesso!")
+    messages.success(request, DELETE_MESSAGES["DELETE_POST"])
     return redirect("/")
