@@ -11,14 +11,14 @@
 
             {% if request.user.is_authenticated %}
                 <div>
-                    <a href="{% url 'register_post' %}" class="btn btn__custom__secondary opacity__hover">Registrar Postagem</a>
+                    <a href="{% url 'register_post' %}" class="btn btn__custom__secondary hover">Registrar Postagem</a>
                 </div>
             {% endif %}
         </div>
 
         {% if page_posts %}
             {% for post in page_posts %}
-                <a href="{% url 'detail_post' post.slug %}" class="text-decoration-none opacity__hover">
+                <a href="{% url 'detail_post' post.slug %}" class="text-decoration-none hover">
                     <article class="border rounded-3 p-3 my-3 bg__custom__primary border-color">
                         <h2 class="text__title">{{post.title}}</h2>
                         <p class="text__description">{{post.resume}}</p>
@@ -30,13 +30,13 @@
             {% if page_posts.has_next %}
                 <nav class="d-flex justify-content-start mb-3" aria-label="Pagination">
                     {% if page_posts.has_previous %}
-                        <a class="btn btn__custom__primary opacity__hover m-1" href="?page={{ page_posts.previous_page_number }}">Anterior</a>
+                        <a class="btn btn__custom__primary hover m-1" href="?page={{ page_posts.previous_page_number }}">Anterior</a>
                     {% else %}
                         <a class="btn btn-outline-secondary m-1 disabled" href="#">Anterior</a>
                     {% endif %}
 
                     {% if page_posts.has_next %}
-                        <a class="btn btn__custom__primary opacity__hover m-1" href="?page={{ page_posts.next_page_number }}">Próxima</a>
+                        <a class="btn btn__custom__primary hover m-1" href="?page={{ page_posts.next_page_number }}">Próxima</a>
                     {% else %}
                         <a class="btn btn-outline-secondary m-1 disabled" href="#">Próxima</a>
                     {% endif %}

@@ -73,7 +73,7 @@
 }
 
 /* OPACITY ITEMS */
-.opacity__hover:hover{
+.hover:hover{
     opacity: .6 !important;
 }
 
