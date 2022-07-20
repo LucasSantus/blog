@@ -40,6 +40,7 @@ def change_post(request, slug_post):
     context = {
         "form": form,
         "action": "Modificar",
+        "post": post
     }
 
     return render(request, 'posts/post/register_post.html', context)
