@@ -12,7 +12,7 @@ class SignupForm(forms.ModelForm):
             "invalid": "Por favor, insira uma confirmação de senha válida!",
         },
     )
-    
+
     def save(self, commit=True):
         user = super(SignupForm, self).save(commit = False)
         user.set_password(self.cleaned_data['password'])
@@ -26,7 +26,7 @@ class SignupForm(forms.ModelForm):
     class Meta:
         model = User
 
-        fields = ["name", "last_name", "email", "password", "confirm_password"  ]
+        fields = ["name", "last_name", "email", "password", "confirm_password" ]
 
         error_messages = {
             "name":{
