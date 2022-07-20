@@ -4,3 +4,5 @@ from home.views import *
 urlpatterns = [
     path('', index, name='index'),
 ]
+
+handler404 = "home.views.error_404"

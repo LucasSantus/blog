@@ -25,7 +25,7 @@ def register_post(request):
 
 @login_required
 def change_post(request, slug_post):
-    post = Post.objects.select_related('author').get(slug = slug_post)
+    post = get_object_or_404(Post.objects.select_related('author'), slug = slug_post)
     form = PostForm(instance = post)
     if request.method == "POST":
         form = PostForm(request.POST, instance = post)
@@ -43,7 +43,7 @@ def change_post(request, slug_post):
     return render(request, 'posts/post/register_post.html', context)
 
 def detail_post(request, slug_post):
-    post = Post.objects.select_related('author').get(slug = slug_post)
+    post = get_object_or_404(Post.objects.select_related('author'), slug = slug_post)
     context = {
         "post": post,
     }
@@ -51,6 +51,7 @@ def detail_post(request, slug_post):
 
 @login_required
 def delete_post(request, slug_post):
+    post = get_object_or_404(Post.objects.select_related('author'), slug = slug_post)
     Post.objects.get(slug = slug_post).delete()
     messages.success(request, f"Postagem deletada com sucesso!")
     return redirect("/")
