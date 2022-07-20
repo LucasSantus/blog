@@ -1,2 +1,2 @@
 from .index import *
-from .erros import *
+from .errors import *
