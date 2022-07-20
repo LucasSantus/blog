@@ -101,6 +101,9 @@
                 $(document).ready(function(){
                     $(".toast").toast("show")
                 });
+
+                /* disabled Context Menu on pages */
+                document.addEventListener('contextmenu', event => event.preventDefault());
             </script>
         {% endif %}
 
