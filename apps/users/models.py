@@ -22,7 +22,6 @@ class UserManager(BaseUserManager):
         user.is_active = True
         user.is_staff = False
         user.is_superuser = False
-
         return user
 
     def create_superuser(self, name, last_name, email, password, **kwargs):
@@ -31,7 +30,6 @@ class UserManager(BaseUserManager):
             last_name = last_name,
             email = email,
             password = password,
-            
             **kwargs
         )
 
@@ -40,7 +38,6 @@ class UserManager(BaseUserManager):
         user.is_superuser = True
         user.set_password(password)
         user.save()
-
         return user
 
 class User(AbstractBaseUser, PermissionsMixin, Base):

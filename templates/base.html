@@ -10,21 +10,43 @@
         <meta name="description" content="Simple site on posts" />
         <meta name="author" content="Lucas Eduardo de Oliveira Santos" />
 
-        <!-- <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}"> -->
+        <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.svg' %}">
 
-        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
 
         {% if not "accounts" in request.path %}
             <link rel="stylesheet" href="{% static 'css/material-icons/filled/material-icons-filled.min.css' %}">
         {% endif %}
 
         <!-- Import Styles CSS -->
-        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-        <title>Django Posts</title>
+        <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
 
         {% block css %}
         {% endblock %}
+
+        <title>Django Posts</title>
+
+        <!-- if javascript is disabled, this content will appear -->
+        <noscript>
+            <style type="text/css">
+                body main{
+                    display: none;
+                }
+                .javascript__disabled{
+                    display: flex;
+                    width: 100%;
+                    height: 100vh;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 22px;
+                    background-color: #0D1117;
+                    color: #8f8f8f;
+                }
+            </style>
+            <div class="javascript__disabled">
+                JavaScript desativado, por favor, ative-o para o sistema funcionar corretamente!
+            </div>
+        </noscript>
     </head>
 
     <body>
@@ -32,14 +54,14 @@
             <div class="container">
                 <header class="d-flex flex-wrap justify-content-center pt-3 mb-4">
                     <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                        <h4 class="fs-3 text-white opacity__hover">Posts</h4>
+                        <h4 class="fs-3 text-white hover">Posts</h4>
                     </a>
                     <ul class="nav nav-pills">
                         {% if request.user.is_authenticated %}
-                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link opacity__hover text-white text-decoration-underline">Logout</a></li>
+                            <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link hover text-white text-decoration-underline">Logout</a></li>
                         {% else %}
-                            <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link opacity__hover text-white text-decoration-underline">Sign UP</a></li>
-                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link opacity__hover text-white text-decoration-underline">Log IN</a></li>
+                            <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link hover text-white text-decoration-underline">Sign UP</a></li>
+                            <li class="nav-item"><a href="{% url 'login' %}" class="nav-link hover text-white text-decoration-underline">Log IN</a></li>
                         {% endif %}
                     </ul>
                 </header>
@@ -64,21 +86,24 @@
             <footer class="footer bg-transparent p-3">
                 <div class="container text-center text-md-start">
                     <span class="fs-6 text-muted">
-                        &copy; Copyright 2021 Django Posts | Todos os direitos reservados
+                        &copy; Copyright 2021 Posts | Todos os direitos reservados
                     </span>
                 </div>
             </footer>
         {% endif %}
 
-        <script src="{% static 'js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/jquery/jquery.min.js' %}"></script>
         
         {% if not "accounts" in request.path %}
-            <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+            <script src="{% static 'js/bootstrap/bootstrap.bundle.min.js' %}"></script>
 
             <script>
                 $(document).ready(function(){
                     $(".toast").toast("show")
                 });
+
+                /* disabled Context Menu on pages */
+                document.addEventListener('contextmenu', event => event.preventDefault());
             </script>
         {% endif %}
 

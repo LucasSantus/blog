@@ -5,7 +5,7 @@
 {% block content %}
     <nav aria-label="breadcrumb" class="col-10 container mt-2">
         <ol class="breadcrumb justify-content-center justify-content-sm-start">
-            <li class="breadcrumb-item opacity__hover"><a href="/" class="text-white">Dashboard</a></li>
+            <li class="breadcrumb-item hover"><a href="/" class="text-white">Dashboard</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{post.title|truncatechars:20}}</li>
         </ol>
     </nav>
@@ -17,12 +17,12 @@
                 <div class="d-flex justify-content-end py-3 d-sm-flex justify-content-sm-between p-sm-0">
                     <div>
                         <a href="{% url 'change_post' post.slug %}" class="m-1">
-                            <span class="material-icons text-success opacity__hover border-color rounded-3 p-1" style="font-size: 20px;">edit</span>
+                            <span class="material-icons text-success hover border-color rounded-3 p-1" style="font-size: 20px;">edit</span>
                         </a>
                     </div>
                     <div>
                         <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="m-1">
-                            <span class="material-icons text-danger opacity__hover border-color rounded-3 p-1" style="font-size: 20px;">delete</span>
+                            <span class="material-icons text-danger hover border-color rounded-3 p-1" style="font-size: 20px;">delete</span>
                         </a>
                     </div>
                 </div>
@@ -54,8 +54,8 @@
                 <div class="modal-body">
                     <p>Deseja realmente realizar essa ação, não será possível recuperar os dados perdidos, para continuar pressione [ Confirmar ]</p>
                     <div class="d-flex justify-content-start gap-2">
-                        <button type="button" class="btn btn__custom__secondary opacity__hover" data-bs-dismiss="modal">Fechar</button>
-                        <a href="{% url 'delete_post' post.slug %}" class="btn btn__custom__secondary opacity__hover">Confirmar</a>
+                        <button type="button" class="btn btn__custom__secondary hover" data-bs-dismiss="modal">Fechar</button>
+                        <a href="{% url 'delete_post' post.slug %}" class="btn btn__custom__secondary hover">Confirmar</a>
                     </div>
                 </div>
             </div>

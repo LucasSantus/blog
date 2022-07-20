@@ -10,7 +10,7 @@
 
 A ideia é:
 
-_"Criar um Blog onde o mesmo tenha um design simples e belo, com intuito de promover o aprendizado e gerar um projeto simples utilizando o Django framework."_
+_"Criar um projeto relacionado a um sistema de blogs possibilitando o cadastro de novos usuários para ter a manipulação dos dados, onde o usuário consiga adicionar, visualizar, editar e remover uma postagem. Tendo como objetivo a construção do backend da aplicação com intuito de promover o aprendizado na área relacionado ao Django Framework e o frontend utilizando Bootstrap 5."_
 
 --------------------------------------------------------------------------------------
 
@@ -26,7 +26,6 @@ _"Criar um Blog onde o mesmo tenha um design simples e belo, com intuito de prom
     * [Clonando Repositório](#clonando)
     * [Windows](#rodando-windows)
     * [Linux](#rodando-linux)
-* [Comandos](#comandos)
 * [Autor](#autor)
 * [Licença](#license)
 
@@ -35,7 +34,7 @@ _"Criar um Blog onde o mesmo tenha um design simples e belo, com intuito de prom
 <h3 id="status">:heavy_exclamation_mark: Status do Projeto</h3>
 
 <h4 align="center"> 
-	✔️ Sistema Web em construção... ✔️
+	:heavy_check_mark: Sistema Web finalizado... :heavy_check_mark:
 </h4>
 
 --------------------------------------------------------------------------------------
@@ -54,18 +53,23 @@ Este é um projeto totalmente grátis!
 
 As seguintes ferramentas foram usadas na construção do projeto:
 
-- [Django Framework](https://www.djangoproject.com/)
-- [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Django Framework 3.2.12](https://www.djangoproject.com/)
+- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Django Auto Slug 1.9.8](https://pypi.org/project/django-autoslug/)
+- [Django Form Bootstrap V5](https://pypi.org/project/django-bootstrap-v5/)
+- [Django Debug Toolbar 3.2.4](https://pypi.org/project/django-debug-toolbar/3.2.4/)
 
 --------------------------------------------------------------------------------------
 
 <h3 id="funcionalidades">:sparkles: Funcionalidades</h3>
 
-- [X] Possibilita a criação de conta.
+- [X] Possibilita a criação de uma nova conta.
 - [X] Possibilita a recuperação de conta.
+- [X] Possibilita logar no sistema.
+- [X] Possibilita deslogar no sistema.
 
 - [X] Possibilita a criação de postagens.
-- [X] Possibilita a visualização de postagens.
+- [X] Possibilita a visualização detalhada de uma postagem.
 - [X] Possibilita a edição de postagens.
 - [X] Possibilita a remoção de postagens.
 
