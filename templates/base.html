@@ -21,10 +21,32 @@
         <!-- Import Styles CSS -->
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 
-        <title>Django Posts</title>
-
         {% block css %}
         {% endblock %}
+
+        <title>Django Posts</title>
+
+        <!-- if javascript is disabled, this content will appear -->
+        <noscript>
+            <style type="text/css">
+                body main{
+                    display: none;
+                }
+                .javascript__disabled{
+                    display: flex;
+                    width: 100%;
+                    height: 100vh;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 22px;
+                    background-color: #0D1117;
+                    color: #8f8f8f;
+                }
+            </style>
+            <div class="javascript__disabled">
+                JavaScript desativado, por favor, ative-o para o sistema funcionar corretamente!
+            </div>
+        </noscript>
     </head>
 
     <body>
