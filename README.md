@@ -1,7 +1,7 @@
 <h1 align="center">Posts</h1>
 
 <h6 align="center"> 
-	Se você quiser visualizar as imagens do aplicativo, clique <a href="https://posts-django.herokuapp.com/">aqui</a>.
+	Se você quiser visualizar a aplicação, clique <a href="https://posts-django.herokuapp.com/">aqui</a>.
 </h6>
 
 <h3 id="sobre">:information_source: Sobre</h3>
@@ -54,7 +54,7 @@ Este é um projeto totalmente grátis!
 As seguintes ferramentas foram usadas na construção do projeto:
 
 - [Django Framework 3.2.12](https://www.djangoproject.com/)
-- [Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
+- [Bootstrap 5.0](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 - [Django Auto Slug 1.9.8](https://pypi.org/project/django-autoslug/)
 - [Django Form Bootstrap V5](https://pypi.org/project/django-bootstrap-v5/)
 - [Django Debug Toolbar 3.2.4](https://pypi.org/project/django-debug-toolbar/3.2.4/)
