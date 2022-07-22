@@ -87,8 +87,6 @@ cd django-posts
 
 <h4 id="rodando">Rodando o Projeto</h4>
 
-> Antes de rodar o projeto, é necessário configurar o settings_local.py
-
 <h4 id="rodando-windows">
 	<strong>Windows</strong>
 </h4>
